@@ -1,0 +1,1344 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="درباره محمد وحدانی | VAHDANI.TRADER | تریدر و فعال بازارهای مالی"
+    >
+
+    <title>درباره من | VAHDANI.TRADER</title>
+
+
+    <style>
+
+        /* =====================================================
+           ROOT
+        ===================================================== */
+
+        :root {
+            --gold: #d4af37;
+            --gold-light: #fff0a0;
+            --gold-dark: #8f6b12;
+
+            --black: #050505;
+            --dark: #0b0b0b;
+
+            --text: #ffffff;
+            --muted: #999999;
+
+            --border: rgba(212,175,55,.30);
+
+            --max-width: 1250px;
+        }
+
+
+        /* =====================================================
+           RESET
+        ===================================================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+            width: 100%;
+            min-height: 100vh;
+
+            overflow-x: hidden;
+
+            font-family:
+                Tahoma,
+                Arial,
+                sans-serif;
+
+            color: var(--text);
+
+            background:
+                radial-gradient(
+                    circle at 15% 15%,
+                    rgba(212,175,55,.10),
+                    transparent 28%
+                ),
+
+                radial-gradient(
+                    circle at 85% 80%,
+                    rgba(212,175,55,.08),
+                    transparent 30%
+                ),
+
+                var(--black);
+        }
+
+
+        body::before {
+            content: "";
+
+            position: fixed;
+
+            inset: 0;
+
+            z-index: -1;
+
+            pointer-events: none;
+
+            background-image:
+
+                linear-gradient(
+                    rgba(212,175,55,.025) 1px,
+                    transparent 1px
+                ),
+
+                linear-gradient(
+                    90deg,
+                    rgba(212,175,55,.025) 1px,
+                    transparent 1px
+                );
+
+            background-size: 55px 55px;
+
+            mask-image:
+                linear-gradient(
+                    to bottom,
+                    black,
+                    transparent 90%
+                );
+
+            -webkit-mask-image:
+                linear-gradient(
+                    to bottom,
+                    black,
+                    transparent 90%
+                );
+        }
+
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+
+        img {
+            max-width: 100%;
+        }
+
+
+        /* =====================================================
+           HEADER
+        ===================================================== */
+
+        header {
+            position: sticky;
+
+            top: 0;
+
+            z-index: 1000;
+
+            width: 100%;
+
+            background:
+                rgba(5,5,5,.94);
+
+            backdrop-filter:
+                blur(18px);
+
+            -webkit-backdrop-filter:
+                blur(18px);
+
+            border-bottom:
+                1px solid
+                rgba(212,175,55,.30);
+
+            box-shadow:
+                0 8px 35px
+                rgba(0,0,0,.45);
+        }
+
+
+        .navbar {
+            width: 100%;
+
+            max-width: var(--max-width);
+
+            min-height: 78px;
+
+            margin: auto;
+
+            padding:
+                10px 25px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 30px;
+
+            direction: ltr;
+        }
+
+
+        /* =====================================================
+           BRAND
+        ===================================================== */
+
+        .brand {
+            display: flex;
+
+            align-items: center;
+
+            flex-shrink: 0;
+
+            direction: ltr;
+        }
+
+
+        .brand-text {
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: flex-start;
+
+            gap: 3px;
+
+            text-align: left;
+        }
+
+
+        .brand-name {
+            color: var(--gold-light);
+
+            font-size: 20px;
+
+            font-weight: 900;
+
+            letter-spacing: 1px;
+
+            white-space: nowrap;
+
+            text-shadow:
+                0 0 18px
+                rgba(212,175,55,.25);
+        }
+
+
+        .brand-sub {
+            color: #777;
+
+            font-size: 8px;
+
+            font-weight: 700;
+
+            letter-spacing: 2px;
+
+            white-space: nowrap;
+        }
+
+
+        /* =====================================================
+           NAVIGATION
+        ===================================================== */
+
+        nav {
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 28px;
+
+            flex-shrink: 0;
+
+            direction: rtl;
+
+            white-space: nowrap;
+        }
+
+
+        nav a {
+            position: relative;
+
+            display: block;
+
+            padding:
+                8px 0;
+
+            color: #ccc;
+
+            font-size: 14px;
+
+            font-weight: 700;
+
+            transition:
+                .3s ease;
+        }
+
+
+        nav a::after {
+            content: "";
+
+            position: absolute;
+
+            right: 0;
+
+            bottom: 0;
+
+            width: 0;
+
+            height: 2px;
+
+            background:
+                var(--gold);
+
+            box-shadow:
+                0 0 10px
+                rgba(212,175,55,.7);
+
+            transition:
+                .3s ease;
+        }
+
+
+        nav a:hover,
+        nav a.active {
+            color:
+                var(--gold-light);
+        }
+
+
+        nav a:hover::after,
+        nav a.active::after {
+            width: 100%;
+        }
+
+
+        /* =====================================================
+           ABOUT HERO
+        ===================================================== */
+
+        .about-hero {
+            position: relative;
+
+            width: 100%;
+
+            max-width: var(--max-width);
+
+            min-height:
+                calc(100vh - 78px);
+
+            margin: auto;
+
+            padding:
+                80px 30px;
+
+            display: grid;
+
+            grid-template-columns:
+                .9fr 1.1fr;
+
+            align-items: center;
+
+            gap: 70px;
+
+            direction: ltr;
+        }
+
+
+        .about-hero::before {
+            content: "";
+
+            position: absolute;
+
+            width: 500px;
+
+            height: 500px;
+
+            left: -180px;
+
+            top: 80px;
+
+            border-radius: 50%;
+
+            background:
+                rgba(212,175,55,.08);
+
+            filter:
+                blur(120px);
+
+            pointer-events: none;
+        }
+
+
+        /* =====================================================
+           PHOTO
+        ===================================================== */
+
+        .photo-wrapper {
+            position: relative;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            min-height: 560px;
+
+            direction: ltr;
+        }
+
+
+        .photo-card {
+            position: relative;
+
+            width:
+                min(470px,100%);
+
+            padding: 10px;
+
+            border:
+                1px solid
+                rgba(212,175,55,.45);
+
+            border-radius: 28px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(212,175,55,.15),
+                    rgba(20,20,20,.90)
+                );
+
+            box-shadow:
+                0 0 45px
+                rgba(212,175,55,.13),
+
+                inset 0 0 35px
+                rgba(212,175,55,.04);
+
+            overflow: hidden;
+
+            animation:
+                cardFloat 5s
+                ease-in-out
+                infinite;
+        }
+
+
+        .photo-card::before {
+            content: "";
+
+            position: absolute;
+
+            inset: 0;
+
+            border-radius: 28px;
+
+            background:
+                radial-gradient(
+                    circle at 50% 0%,
+                    rgba(212,175,55,.20),
+                    transparent 42%
+                );
+
+            pointer-events: none;
+        }
+
+
+        .photo-card::after {
+            content: "";
+
+            position: absolute;
+
+            inset: 18px;
+
+            border:
+                1px solid
+                rgba(212,175,55,.18);
+
+            border-radius: 20px;
+
+            pointer-events: none;
+
+            z-index: 2;
+        }
+
+
+        .photo-card img {
+            position: relative;
+
+            z-index: 1;
+
+            display: block;
+
+            width: 100%;
+
+            height: 560px;
+
+            object-fit: cover;
+
+            object-position: center;
+
+            border-radius: 20px;
+
+            filter:
+                saturate(.95)
+                contrast(1.03);
+
+            transition:
+                .5s ease;
+        }
+
+
+        .photo-card:hover img {
+            transform:
+                scale(1.025);
+
+            filter:
+                saturate(1.05)
+                contrast(1.06);
+        }
+
+
+        /* =====================================================
+           CONTENT
+        ===================================================== */
+
+        .about-content {
+            position: relative;
+
+            z-index: 2;
+
+            direction: rtl;
+
+            text-align: right;
+        }
+
+
+        /* =====================================================
+           BADGE
+        ===================================================== */
+
+        .tag {
+            display: inline-block;
+
+            margin-bottom: 25px;
+
+            padding:
+                9px 18px;
+
+            border:
+                1px solid
+                var(--gold);
+
+            border-radius:
+                999px;
+
+            color:
+                var(--gold-light);
+
+            background:
+                rgba(212,175,55,.04);
+
+            font-size: 12px;
+
+            font-weight: 800;
+
+            letter-spacing: 1px;
+
+            box-shadow:
+                0 0 20px
+                rgba(212,175,55,.08);
+
+            animation:
+                float 4s
+                ease-in-out
+                infinite;
+        }
+
+
+        /* =====================================================
+           TITLE
+        ===================================================== */
+
+        .about-content h1 {
+            margin-bottom: 25px;
+
+            color: #fff;
+
+            font-size:
+                clamp(42px,5.5vw,68px);
+
+            line-height: 1.35;
+
+            font-weight: 900;
+        }
+
+
+        .about-content h1 span {
+            color:
+                var(--gold-light);
+
+            text-shadow:
+                0 0 30px
+                rgba(212,175,55,.25);
+        }
+
+
+        .subtitle {
+            max-width: 650px;
+
+            margin-bottom: 35px;
+
+            color: #b5b5b5;
+
+            font-size: 17px;
+
+            line-height: 2.2;
+        }
+
+
+        /* =====================================================
+           STATS
+        ===================================================== */
+
+        .stats {
+            width: 100%;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3,1fr);
+
+            gap: 15px;
+
+            margin-bottom: 35px;
+        }
+
+
+        .stat {
+            padding:
+                22px 15px;
+
+            text-align: center;
+
+            border:
+                1px solid
+                var(--border);
+
+            border-radius: 16px;
+
+            background:
+                rgba(255,255,255,.025);
+
+            transition:
+                .35s ease;
+        }
+
+
+        .stat:hover {
+            transform:
+                translateY(-6px);
+
+            border-color:
+                var(--gold);
+
+            box-shadow:
+                0 12px 30px
+                rgba(212,175,55,.10);
+        }
+
+
+        .stat strong {
+            display: block;
+
+            margin-bottom: 8px;
+
+            color:
+                var(--gold-light);
+
+            font-size: 18px;
+        }
+
+
+        .stat small {
+            color: #888;
+
+            font-size: 11px;
+        }
+
+
+        /* =====================================================
+           BUTTONS
+        ===================================================== */
+
+        .buttons {
+            display: flex;
+
+            align-items: center;
+
+            gap: 14px;
+
+            flex-wrap: wrap;
+        }
+
+
+        .btn {
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            min-width: 145px;
+
+            padding:
+                14px 25px;
+
+            border-radius: 12px;
+
+            font-size: 14px;
+
+            font-weight: 900;
+
+            transition:
+                .35s ease;
+        }
+
+
+        .btn-primary {
+            color: #080808;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #fff0a0,
+                    #d4af37,
+                    #9b7514
+                );
+
+            box-shadow:
+                0 8px 30px
+                rgba(212,175,55,.20);
+        }
+
+
+        .btn-primary:hover {
+            transform:
+                translateY(-4px);
+
+            box-shadow:
+                0 15px 40px
+                rgba(212,175,55,.35);
+        }
+
+
+        .btn-secondary {
+            color:
+                var(--gold-light);
+
+            border:
+                1px solid
+                var(--gold);
+
+            background:
+                rgba(212,175,55,.04);
+        }
+
+
+        .btn-secondary:hover {
+            transform:
+                translateY(-4px);
+
+            background:
+                rgba(212,175,55,.12);
+        }
+
+
+        /* =====================================================
+           FOOTER
+        ===================================================== */
+
+        footer {
+            padding:
+                40px 25px;
+
+            text-align: center;
+
+            background:
+                #030303;
+
+            border-top:
+                1px solid
+                rgba(212,175,55,.25);
+        }
+
+
+        .footer-name {
+            margin-bottom: 10px;
+
+            color:
+                var(--gold-light);
+
+            font-size: 20px;
+
+            font-weight: 900;
+
+            direction: ltr;
+        }
+
+
+        footer p {
+            color: #666;
+
+            font-size: 11px;
+
+            line-height: 2;
+        }
+
+
+        /* =====================================================
+           ANIMATIONS
+        ===================================================== */
+
+        @keyframes float {
+
+            0%,100% {
+                transform:
+                    translateY(0);
+            }
+
+            50% {
+                transform:
+                    translateY(-6px);
+            }
+        }
+
+
+        @keyframes cardFloat {
+
+            0%,100% {
+                transform:
+                    translateY(0);
+            }
+
+            50% {
+                transform:
+                    translateY(-10px);
+            }
+        }
+
+
+        /* =====================================================
+           TABLET
+        ===================================================== */
+
+        @media (max-width: 900px) {
+
+            .navbar {
+                padding:
+                    14px 20px;
+
+                gap: 20px;
+            }
+
+
+            .about-hero {
+                grid-template-columns: 1fr;
+
+                min-height: auto;
+
+                padding:
+                    65px 25px
+                    60px;
+
+                gap: 45px;
+
+                text-align: center;
+            }
+
+
+            .about-content {
+                order: 1;
+
+                text-align: center;
+            }
+
+
+            .photo-wrapper {
+                order: 2;
+
+                min-height: auto;
+            }
+
+
+            .subtitle {
+                margin-left: auto;
+
+                margin-right: auto;
+            }
+
+
+            .stats {
+                max-width: 700px;
+
+                margin-left: auto;
+
+                margin-right: auto;
+            }
+
+
+            .buttons {
+                justify-content: center;
+            }
+
+
+            .photo-card {
+                width:
+                    min(500px,100%);
+            }
+        }
+
+
+        /* =====================================================
+           MOBILE
+        ===================================================== */
+
+        @media (max-width: 600px) {
+
+            .navbar {
+                min-height: 74px;
+
+                padding:
+                    12px 15px;
+
+                gap: 10px;
+            }
+
+
+            .brand-name {
+                font-size: 16px;
+            }
+
+
+            .brand-sub {
+                font-size: 7px;
+
+                letter-spacing: 1.5px;
+            }
+
+
+            nav {
+                gap: 14px;
+            }
+
+
+            nav a {
+                font-size: 11px;
+            }
+
+
+            .about-hero {
+                padding:
+                    50px 20px
+                    45px;
+
+                gap: 35px;
+            }
+
+
+            .about-content h1 {
+                font-size: 37px;
+
+                line-height: 1.45;
+            }
+
+
+            .subtitle {
+                font-size: 14px;
+
+                line-height: 2;
+            }
+
+
+            .stats {
+                grid-template-columns: 1fr;
+
+                gap: 12px;
+            }
+
+
+            .stat {
+                padding:
+                    20px 15px;
+            }
+
+
+            .buttons {
+                flex-direction: column;
+
+                align-items: center;
+            }
+
+
+            .btn {
+                width: 100%;
+
+                max-width: 280px;
+            }
+
+
+            .photo-wrapper {
+                padding-top: 5px;
+            }
+
+
+            .photo-card {
+                width: 100%;
+
+                max-width: 430px;
+
+                padding: 8px;
+
+                border-radius: 22px;
+            }
+
+
+            .photo-card img {
+                height: 480px;
+
+                border-radius: 16px;
+            }
+
+
+            .photo-card::after {
+                inset: 14px;
+
+                border-radius: 17px;
+            }
+
+
+            footer {
+                padding:
+                    35px 20px;
+            }
+        }
+
+
+        /* =====================================================
+           SMALL PHONES
+        ===================================================== */
+
+        @media (max-width: 400px) {
+
+            .navbar {
+                padding-left: 12px;
+
+                padding-right: 12px;
+            }
+
+
+            .brand-name {
+                font-size: 14px;
+            }
+
+
+            .brand-sub {
+                font-size: 6px;
+
+                letter-spacing: 1px;
+            }
+
+
+            nav {
+                gap: 11px;
+            }
+
+
+            nav a {
+                font-size: 10px;
+            }
+
+
+            .about-content h1 {
+                font-size: 31px;
+            }
+
+
+            .subtitle {
+                font-size: 13px;
+            }
+
+
+            .photo-card img {
+                height: 430px;
+            }
+        }
+
+
+        /* =====================================================
+           REDUCE MOTION
+        ===================================================== */
+
+        @media (prefers-reduced-motion: reduce) {
+
+            html {
+                scroll-behavior: auto;
+            }
+
+            *,
+            *::before,
+            *::after {
+                animation-duration:
+                    .01ms !important;
+
+                animation-iteration-count:
+                    1 !important;
+
+                transition-duration:
+                    .01ms !important;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         HEADER
+    ===================================================== -->
+
+    <header>
+
+        <div class="navbar">
+
+            <a
+                href="index.html"
+                class="brand"
+            >
+
+                <div class="brand-text">
+
+                    <div class="brand-name">
+                        VAHDANI.TRADER
+                    </div>
+
+                    <div class="brand-sub">
+                        PRECISION • PATIENCE • PROFIT
+                    </div>
+
+                </div>
+
+            </a>
+
+
+            <nav>
+
+                <a href="index.html">
+                    خانه
+                </a>
+
+                <a
+                    href="about.html"
+                    class="active"
+                >
+                    درباره من
+                </a>
+
+                <a href="services.html">
+                    خدمات
+                </a>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         ABOUT
+    ===================================================== -->
+
+    <main>
+
+        <section class="about-hero">
+
+
+            <!-- =================================================
+                 PHOTO
+            ================================================== -->
+
+            <div class="photo-wrapper">
+
+                <div class="photo-card">
+
+                    <img
+                        src="3746(1).png"
+                        alt="محمد وحدانی - VAHDANI.TRADER"
+                    >
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 CONTENT
+            ================================================== -->
+
+            <div class="about-content">
+
+                <div class="tag">
+                    VAHDANI.TRADER
+                </div>
+
+
+                <h1>
+                    من
+                    <span>محمد وحدانی</span>
+                    هستم
+                </h1>
+
+
+                <p class="subtitle">
+                    تریدر و فعال بازارهای مالی هستم.
+                    مسیر من در بازار با یادگیری، تجربه،
+                    صبر و تلاش شکل گرفته است.
+                    اینجا بخشی از مسیر، دیدگاه و تجربیاتم
+                    در دنیای معامله‌گری را با شما به اشتراک
+                    می‌گذارم.
+                </p>
+
+
+                <!-- STATS -->
+
+                <div class="stats">
+
+                    <div class="stat">
+
+                        <strong>
+                            TRADER
+                        </strong>
+
+                        <small>
+                            فعال در بازارهای مالی
+                        </small>
+
+                    </div>
+
+
+                    <div class="stat">
+
+                        <strong>
+                            PRECISION
+                        </strong>
+
+                        <small>
+                            دقت در تحلیل
+                        </small>
+
+                    </div>
+
+
+                    <div class="stat">
+
+                        <strong>
+                            PATIENCE
+                        </strong>
+
+                        <small>
+                            صبر در تصمیم‌گیری
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <!-- BUTTONS -->
+
+                <div class="buttons">
+
+                    <a
+                        href="services.html"
+                        class="btn btn-primary"
+                    >
+                        خدمات من
+                    </a>
+
+
+                    <a
+                        href="index.html"
+                        class="btn btn-secondary"
+                    >
+                        بازگشت به خانه
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+    ===================================================== -->
+
+    <footer>
+
+        <div class="footer-name">
+            VAHDANI.TRADER
+        </div>
+
+
+        <p>
+            PRECISION • PATIENCE • PROFIT
+        </p>
+
+
+        <p>
+            © 2026 VAHDANI.TRADER
+        </p>
+<p>
+    <a href="https://instagram.com/vahdani.trader" target="_blank">
+        Instagram: @vahdani.trader
+    </a>
+</p>
+    <p>
+    <a href="tel:09148449424">
+        تماس: 09148449424
+    </a>
+</p>  </footer>
+
+
+</body>
+
+</html>
