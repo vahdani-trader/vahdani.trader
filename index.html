@@ -1,1642 +1,393 @@
 <!DOCTYPE html>
-
-<html dir="rtl" lang="fa">
+<html lang="fa" dir="rtl" class="scroll-smooth">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<meta content="VAHDANI.TRADER | محمد وحدانی | ترید، تحلیل بازار و مسیر معامله‌گری" name="description"/>
-<title>VAHDANI.TRADER | تریدر حرفه‌ای</title>
-<style>
-
-        /* =====================================================
-           ROOT
-        ===================================================== */
-
-        :root {
-            --gold: #d4af37;
-            --gold-light: #fff0a0;
-            --gold-dark: #8f6b12;
-
-            --black: #050505;
-            --dark: #0b0b0b;
-
-            --text: #ffffff;
-            --muted: #999999;
-
-            --border: rgba(212,175,55,.30);
-
-            --max-width: 1250px;
-        }
-
-
-        /* =====================================================
-           RESET
-        ===================================================== */
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-
-        body {
-            width: 100%;
-            min-height: 100vh;
-
-            overflow-x: hidden;
-
-            font-family:
-                Tahoma,
-                Arial,
-                sans-serif;
-
-            color: var(--text);
-
-            background:
-                radial-gradient(
-                    circle at 15% 15%,
-                    rgba(212,175,55,.10),
-                    transparent 28%
-                ),
-
-                radial-gradient(
-                    circle at 85% 80%,
-                    rgba(212,175,55,.08),
-                    transparent 30%
-                ),
-
-                var(--black);
-        }
-
-
-        body::before {
-            content: "";
-
-            position: fixed;
-
-            inset: 0;
-
-            z-index: -1;
-
-            pointer-events: none;
-
-            background-image:
-
-                linear-gradient(
-                    rgba(212,175,55,.025) 1px,
-                    transparent 1px
-                ),
-
-                linear-gradient(
-                    90deg,
-                    rgba(212,175,55,.025) 1px,
-                    transparent 1px
-                );
-
-            background-size: 55px 55px;
-
-            mask-image:
-                linear-gradient(
-                    to bottom,
-                    black,
-                    transparent 90%
-                );
-
-            -webkit-mask-image:
-                linear-gradient(
-                    to bottom,
-                    black,
-                    transparent 90%
-                );
-        }
-
-
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
-
-
-        img {
-            max-width: 100%;
-        }
-
-
-        /* =====================================================
-           HEADER
-        ===================================================== */
-
-        header {
-            position: sticky;
-
-            top: 0;
-
-            z-index: 1000;
-
-            width: 100%;
-
-            background:
-                rgba(5,5,5,.94);
-
-            backdrop-filter:
-                blur(18px);
-
-            -webkit-backdrop-filter:
-                blur(18px);
-
-            border-bottom:
-                1px solid
-                rgba(212,175,55,.30);
-
-            box-shadow:
-                0 8px 35px
-                rgba(0,0,0,.45);
-        }
-
-
-        .navbar {
-            width: 100%;
-
-            max-width: var(--max-width);
-
-            min-height: 78px;
-
-            margin: auto;
-
-            padding:
-                10px 25px;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: space-between;
-
-            gap: 30px;
-
-            direction: ltr;
-        }
-
-
-        /* =====================================================
-           BRAND
-        ===================================================== */
-
-        .brand {
-            display: flex;
-
-            align-items: center;
-
-            flex-shrink: 0;
-
-            direction: ltr;
-        }
-
-
-        .brand-text {
-            display: flex;
-
-            flex-direction: column;
-
-            align-items: flex-start;
-
-            gap: 3px;
-
-            text-align: left;
-        }
-
-
-        .brand-name {
-            color: var(--gold-light);
-
-            font-size: 20px;
-
-            font-weight: 900;
-
-            letter-spacing: 1px;
-
-            white-space: nowrap;
-
-            text-shadow:
-                0 0 18px
-                rgba(212,175,55,.25);
-        }
-
-
-        .brand-sub {
-            color: #777;
-
-            font-size: 8px;
-
-            font-weight: 700;
-
-            letter-spacing: 2px;
-
-            white-space: nowrap;
-        }
-
-
-        /* =====================================================
-           NAVIGATION
-        ===================================================== */
-
-        nav {
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            gap: 28px;
-
-            flex-shrink: 0;
-
-            direction: rtl;
-
-            white-space: nowrap;
-        }
-
-
-        nav a {
-            position: relative;
-
-            display: block;
-
-            padding:
-                8px 0;
-
-            color: #ccc;
-
-            font-size: 14px;
-
-            font-weight: 700;
-
-            transition:
-                .3s ease;
-        }
-
-
-        nav a::after {
-            content: "";
-
-            position: absolute;
-
-            right: 0;
-
-            bottom: 0;
-
-            width: 0;
-
-            height: 2px;
-
-            background:
-                var(--gold);
-
-            box-shadow:
-                0 0 10px
-                rgba(212,175,55,.7);
-
-            transition:
-                .3s ease;
-        }
-
-
-        nav a:hover,
-        nav a.active {
-            color:
-                var(--gold-light);
-        }
-
-
-        nav a:hover::after,
-        nav a.active::after {
-            width: 100%;
-        }
-
-
-        /* =====================================================
-           HERO
-        ===================================================== */
-
-        .hero {
-            position: relative;
-
-            width: 100%;
-
-            max-width: var(--max-width);
-
-            min-height:
-                calc(100vh - 78px);
-
-            margin: auto;
-
-            padding:
-                80px 30px;
-
-            display: grid;
-
-            grid-template-columns:
-                1.1fr .9fr;
-
-            align-items: center;
-
-            gap: 70px;
-
-            direction: ltr;
-        }
-
-
-        .hero::before {
-            content: "";
-
-            position: absolute;
-
-            width: 500px;
-
-            height: 500px;
-
-            right: -180px;
-
-            top: 80px;
-
-            border-radius: 50%;
-
-            background:
-                rgba(212,175,55,.08);
-
-            filter:
-                blur(120px);
-
-            pointer-events: none;
-        }
-
-
-        /* =====================================================
-           HERO CONTENT
-        ===================================================== */
-
-        .hero-content {
-            position: relative;
-
-            z-index: 2;
-
-            direction: rtl;
-
-            text-align: right;
-        }
-
-
-        /* =====================================================
-           BADGE
-        ===================================================== */
-
-        .badge {
-            display: inline-block;
-
-            margin-bottom: 25px;
-
-            padding:
-                9px 18px;
-
-            border:
-                1px solid
-                var(--gold);
-
-            border-radius:
-                999px;
-
-            color:
-                var(--gold-light);
-
-            background:
-                rgba(212,175,55,.04);
-
-            font-size: 12px;
-
-            font-weight: 800;
-
-            box-shadow:
-                0 0 20px
-                rgba(212,175,55,.08);
-
-            animation:
-                float 4s
-                ease-in-out
-                infinite;
-        }
-
-
-        /* =====================================================
-           HERO TEXT
-        ===================================================== */
-
-        .hero h1 {
-            margin-bottom: 25px;
-
-            color: #fff;
-
-            font-size:
-                clamp(45px,6vw,78px);
-
-            line-height: 1.25;
-
-            font-weight: 900;
-        }
-
-
-        .hero h1 span {
-            color:
-                var(--gold-light);
-
-            text-shadow:
-                0 0 30px
-                rgba(212,175,55,.25);
-        }
-
-
-        .hero p {
-            max-width: 650px;
-
-            margin-bottom: 35px;
-
-            color: #b5b5b5;
-
-            font-size: 17px;
-
-            line-height: 2.1;
-        }
-
-
-        /* =====================================================
-           INTRO / COLLAB BOX
-        ===================================================== */
-
-        .intro-box {
-            max-width: 650px;
-
-            margin-bottom: 35px;
-
-            padding: 28px 26px;
-
-            border: 1px solid var(--border);
-
-            border-radius: 18px;
-
-            background:
-                linear-gradient(
-                    145deg,
-                    rgba(255,255,255,.045),
-                    rgba(255,255,255,.012)
-                );
-
-            box-shadow:
-                0 15px 40px
-                rgba(0,0,0,.30);
-
-            transition: .35s ease;
-        }
-
-
-        .intro-box:hover {
-            border-color: var(--gold);
-
-            box-shadow:
-                0 20px 50px
-                rgba(212,175,55,.12);
-        }
-
-
-        .intro-box p {
-            max-width: none;
-
-            margin-bottom: 16px;
-
-            color: #b5b5b5;
-
-            font-size: 16px;
-
-            line-height: 2.1;
-        }
-
-
-        .intro-box p:last-child {
-            margin-bottom: 0;
-        }
-
-
-        @media (max-width: 600px) {
-
-            .intro-box {
-                padding: 22px 18px;
-            }
-
-
-            .intro-box p {
-                font-size: 14px;
-            }
-        }
-
-
-        /* =====================================================
-           BUTTONS
-        ===================================================== */
-
-        .buttons {
-            display: flex;
-
-            align-items: center;
-
-            gap: 14px;
-
-            flex-wrap: wrap;
-        }
-
-
-        .btn {
-            display: inline-flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            min-width: 145px;
-
-            padding:
-                14px 25px;
-
-            border-radius: 12px;
-
-            font-size: 14px;
-
-            font-weight: 900;
-
-            transition:
-                .35s ease;
-        }
-
-
-        .btn-primary {
-            color: #080808;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    #fff0a0,
-                    #d4af37,
-                    #9b7514
-                );
-
-            box-shadow:
-                0 8px 30px
-                rgba(212,175,55,.20);
-        }
-
-
-        .btn-primary:hover {
-            transform:
-                translateY(-4px);
-
-            box-shadow:
-                0 15px 40px
-                rgba(212,175,55,.35);
-        }
-
-
-        .btn-secondary {
-            color:
-                var(--gold-light);
-
-            border:
-                1px solid
-                var(--gold);
-
-            background:
-                rgba(212,175,55,.04);
-        }
-
-
-        .btn-secondary:hover {
-            transform:
-                translateY(-4px);
-
-            background:
-                rgba(212,175,55,.12);
-        }
-
-
-        /* =====================================================
-           HERO LOGO
-        ===================================================== */
-
-        .hero-logo {
-            position: relative;
-
-            min-height: 430px;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            direction: ltr;
-        }
-
-
-        .logo-card {
-            position: relative;
-
-            width:
-                min(390px,90vw);
-
-            aspect-ratio:
-                1 / 1;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            border:
-                1px solid
-                var(--gold);
-
-            border-radius: 30px;
-
-            background:
-                radial-gradient(
-                    circle,
-                    rgba(212,175,55,.11),
-                    rgba(10,10,10,.96) 68%
-                );
-
-            box-shadow:
-                0 0 45px
-                rgba(212,175,55,.12),
-
-                inset 0 0 50px
-                rgba(212,175,55,.04);
-
-            overflow: hidden;
-
-            animation:
-                cardFloat 5s
-                ease-in-out
-                infinite;
-        }
-
-
-        .logo-card::before {
-            content: "";
-
-            position: absolute;
-
-            width: 230px;
-
-            height: 230px;
-
-            border:
-                1px solid
-                rgba(212,175,55,.22);
-
-            border-radius: 50%;
-
-            box-shadow:
-                0 0 80px
-                rgba(212,175,55,.18);
-
-            animation:
-                pulse 3s
-                ease-in-out
-                infinite;
-        }
-
-
-        .logo-card::after {
-            content: "";
-
-            position: absolute;
-
-            inset: 15px;
-
-            border:
-                1px solid
-                rgba(212,175,55,.18);
-
-            border-radius: 23px;
-
-            pointer-events: none;
-        }
-
-
-        .logo-card img {
-            position: relative;
-
-            z-index: 2;
-
-            width: 70%;
-
-            max-height: 70%;
-
-            object-fit: contain;
-
-            filter:
-                drop-shadow(
-                    0 0 22px
-                    rgba(212,175,55,.45)
-                );
-
-            transition:
-                .5s ease;
-        }
-
-
-        .logo-card:hover img {
-            transform:
-                scale(1.06);
-
-            filter:
-                drop-shadow(
-                    0 0 35px
-                    rgba(212,175,55,.65)
-                );
-        }
-
-
-        /* =====================================================
-           STATS
-        ===================================================== */
-
-        .stats {
-            width: 100%;
-
-            max-width: var(--max-width);
-
-            margin:
-                -30px auto
-                80px;
-
-            padding:
-                0 30px;
-
-            display: grid;
-
-            grid-template-columns:
-                repeat(3,1fr);
-
-            gap: 18px;
-
-            direction: rtl;
-        }
-
-
-        .stat {
-            padding: 25px;
-
-            text-align: center;
-
-            border:
-                1px solid
-                var(--border);
-
-            border-radius: 18px;
-
-            background:
-                rgba(255,255,255,.025);
-
-            transition:
-                .35s ease;
-        }
-
-
-        .stat:hover {
-            transform:
-                translateY(-7px);
-
-            border-color:
-                var(--gold);
-
-            box-shadow:
-                0 15px 35px
-                rgba(212,175,55,.10);
-        }
-
-
-        .stat strong {
-            display: block;
-
-            margin-bottom: 7px;
-
-            color:
-                var(--gold-light);
-
-            font-size: 28px;
-        }
-
-
-        .stat span {
-            color: #888;
-
-            font-size: 13px;
-        }
-
-
-        /* =====================================================
-           SERVICES
-        ===================================================== */
-
-        .services {
-            width: 100%;
-
-            max-width: var(--max-width);
-
-            margin: auto;
-
-            padding:
-                80px 30px
-                100px;
-
-            direction: rtl;
-        }
-
-
-        .section-title {
-            text-align: center;
-
-            margin-bottom: 55px;
-        }
-
-
-        .section-title .mini {
-            display: inline-block;
-
-            margin-bottom: 18px;
-
-            padding:
-                8px 18px;
-
-            border:
-                1px solid
-                var(--gold);
-
-            border-radius:
-                999px;
-
-            color:
-                var(--gold-light);
-
-            font-size: 12px;
-        }
-
-
-        .section-title h2 {
-            margin-bottom: 15px;
-
-            color: #fff;
-
-            font-size:
-                clamp(35px,5vw,55px);
-
-            font-weight: 900;
-        }
-
-
-        .section-title h2 span {
-            color:
-                var(--gold);
-        }
-
-
-        .section-title p {
-            max-width: 700px;
-
-            margin: auto;
-
-            color: #999;
-
-            line-height: 2;
-        }
-
-
-        .service-grid {
-            display: grid;
-
-            grid-template-columns:
-                repeat(3,1fr);
-
-            gap: 22px;
-        }
-
-
-        .service-card {
-            position: relative;
-
-            min-height: 265px;
-
-            padding: 30px;
-
-            border:
-                1px solid
-                rgba(212,175,55,.27);
-
-            border-radius: 22px;
-
-            background:
-                linear-gradient(
-                    145deg,
-                    rgba(255,255,255,.045),
-                    rgba(255,255,255,.012)
-                );
-
-            overflow: hidden;
-
-            transition:
-                .4s ease;
-        }
-
-
-        .service-card::before {
-            content: "";
-
-            position: absolute;
-
-            width: 170px;
-
-            height: 170px;
-
-            top: -80px;
-
-            left: -80px;
-
-            border-radius: 50%;
-
-            background:
-                rgba(212,175,55,.08);
-
-            filter:
-                blur(45px);
-        }
-
-
-        .service-card:hover {
-            transform:
-                translateY(-10px);
-
-            border-color:
-                var(--gold);
-
-            box-shadow:
-                0 20px 50px
-                rgba(212,175,55,.12);
-        }
-
-
-        .service-icon {
-            position: relative;
-
-            width: 60px;
-
-            height: 60px;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            margin-bottom: 22px;
-
-            border:
-                1px solid
-                var(--gold);
-
-            border-radius: 16px;
-
-            color:
-                var(--gold-light);
-
-            background:
-                rgba(212,175,55,.05);
-
-            font-size: 24px;
-        }
-
-
-        .service-card h3 {
-            position: relative;
-
-            margin-bottom: 13px;
-
-            color: #fff;
-
-            font-size: 20px;
-        }
-
-
-        .service-card p {
-            position: relative;
-
-            color: #999;
-
-            font-size: 14px;
-
-            line-height: 2;
-        }
-
-
-        /* =====================================================
-           CTA
-        ===================================================== */
-
-        .cta {
-            width:
-                calc(100% - 40px);
-
-            max-width: 1100px;
-
-            margin:
-                20px auto
-                100px;
-
-            padding:
-                70px 30px;
-
-            text-align: center;
-
-            border:
-                1px solid
-                rgba(212,175,55,.38);
-
-            border-radius: 30px;
-
-            background:
-                radial-gradient(
-                    circle at center,
-                    rgba(212,175,55,.11),
-                    rgba(10,10,10,.96) 70%
-                );
-
-            box-shadow:
-                0 0 70px
-                rgba(212,175,55,.06);
-        }
-
-
-        .cta h2 {
-            margin-bottom: 18px;
-
-            font-size:
-                clamp(30px,5vw,50px);
-        }
-
-
-        .cta h2 span {
-            color:
-                var(--gold-light);
-        }
-
-
-        .cta p {
-            max-width: 650px;
-
-            margin:
-                0 auto
-                30px;
-
-            color: #999;
-
-            line-height: 2;
-        }
-
-
-        /* =====================================================
-           FOOTER
-        ===================================================== */
-
-        footer {
-            padding:
-                40px 25px;
-
-            text-align: center;
-
-            background: #030303;
-
-            border-top:
-                1px solid
-                rgba(212,175,55,.25);
-        }
-
-
-        .footer-name {
-            margin-bottom: 10px;
-
-            color:
-                var(--gold-light);
-
-            font-size: 20px;
-
-            font-weight: 900;
-
-            direction: ltr;
-        }
-
-
-        footer p {
-            color: #666;
-
-            font-size: 11px;
-
-            line-height: 2;
-        }
-
-
-        /* =====================================================
-           ANIMATIONS
-        ===================================================== */
-
-        @keyframes float {
-
-            0%,100% {
-                transform:
-                    translateY(0);
-            }
-
-            50% {
-                transform:
-                    translateY(-6px);
-            }
-        }
-
-
-        @keyframes cardFloat {
-
-            0%,100% {
-                transform:
-                    translateY(0);
-            }
-
-            50% {
-                transform:
-                    translateY(-12px);
-            }
-        }
-
-
-        @keyframes pulse {
-
-            0% {
-                transform:
-                    scale(.85);
-
-                opacity: .35;
-            }
-
-            50% {
-                transform:
-                    scale(1.05);
-
-                opacity: .75;
-            }
-
-            100% {
-                transform:
-                    scale(.85);
-
-                opacity: .35;
-            }
-        }
-
-
-        /* =====================================================
-           TABLET
-        ===================================================== */
-
-        @media (max-width: 900px) {
-
-            .navbar {
-                padding:
-                    14px 20px;
-
-                gap: 20px;
-            }
-
-
-            .hero {
-                grid-template-columns: 1fr;
-
-                min-height: auto;
-
-                padding:
-                    65px 25px
-                    50px;
-
-                text-align: center;
-            }
-
-
-            .hero-content {
-                text-align: center;
-            }
-
-
-            .hero p {
-                margin-left: auto;
-
-                margin-right: auto;
-            }
-
-
-            .buttons {
-                justify-content: center;
-            }
-
-
-            .hero-logo {
-                min-height: 360px;
-            }
-
-
-            .stats {
-                margin-top: 0;
-
-                padding:
-                    0 25px;
-            }
-
-
-            .service-grid {
-                grid-template-columns:
-                    repeat(2,1fr);
-            }
-        }
-
-
-        /* =====================================================
-           MOBILE
-        ===================================================== */
-
-        @media (max-width: 600px) {
-
-            header {
-                position: sticky;
-            }
-
-
-            .navbar {
-                min-height: 74px;
-
-                padding:
-                    12px 15px;
-
-                gap: 10px;
-            }
-
-
-            .brand-name {
-                font-size: 16px;
-            }
-
-
-            .brand-sub {
-                font-size: 7px;
-
-                letter-spacing: 1.5px;
-            }
-
-
-            nav {
-                gap: 14px;
-            }
-
-
-            nav a {
-                font-size: 11px;
-            }
-
-
-            .hero {
-                padding:
-                    50px 20px
-                    35px;
-
-                gap: 30px;
-            }
-
-
-            .hero h1 {
-                font-size: 37px;
-            }
-
-
-            .hero p {
-                font-size: 14px;
-
-                line-height: 2;
-            }
-
-
-            .buttons {
-                flex-direction: column;
-
-                align-items: center;
-            }
-
-
-            .btn {
-                width: 100%;
-
-                max-width: 280px;
-            }
-
-
-            .hero-logo {
-                min-height: auto;
-
-                padding-top: 20px;
-            }
-
-
-            .logo-card {
-                width:
-                    min(320px,90vw);
-            }
-
-
-            .stats {
-                grid-template-columns: 1fr;
-
-                padding:
-                    0 20px;
-            }
-
-
-            .services {
-                padding:
-                    60px 20px
-                    70px;
-            }
-
-
-            .service-grid {
-                grid-template-columns: 1fr;
-            }
-
-
-            .service-card {
-                min-height: auto;
-            }
-
-
-            .cta {
-                width:
-                    calc(100% - 30px);
-
-                margin:
-                    20px auto
-                    70px;
-
-                padding:
-                    50px 20px;
-            }
-        }
-
-
-        /* =====================================================
-           SMALL PHONES
-        ===================================================== */
-
-        @media (max-width: 400px) {
-
-            .navbar {
-                padding-left: 12px;
-
-                padding-right: 12px;
-            }
-
-
-            .brand-name {
-                font-size: 14px;
-            }
-
-
-            .brand-sub {
-                font-size: 6px;
-
-                letter-spacing: 1px;
-            }
-
-
-            nav {
-                gap: 11px;
-            }
-
-
-            nav a {
-                font-size: 10px;
-            }
-
-
-            .hero h1 {
-                font-size: 31px;
-            }
-
-
-            .hero p {
-                font-size: 13px;
-            }
-
-
-            .logo-card {
-                width: 280px;
-            }
-        }
-
-
-        /* =====================================================
-           REDUCE MOTION
-        ===================================================== */
-
-        @media (prefers-reduced-motion: reduce) {
-
-            html {
-                scroll-behavior: auto;
-            }
-
-            *,
-            *::before,
-            *::after {
-                animation-duration: .01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: .01ms !important;
-            }
-        }
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VAHDANI.TRADER | Institutional Gold Trading & Capital Management</title>
     
-/* SINGLE PAGE ADDITIONS */
-section[id]{scroll-margin-top:100px;}
-.brand-link{display:flex;align-items:center;color:inherit;text-decoration:none;}
-.about-section,.certificates-section,.contact-section{max-width:1150px;margin:0 auto;padding:95px 25px;}
-.section-title{text-align:center;margin-bottom:45px;}
-.section-title h2{font-size:clamp(30px,5vw,48px);margin-bottom:12px;}
-.section-title h2 span{color:var(--gold);}
-.section-title p{color:#999;line-height:2;max-width:700px;margin:auto;}
-.about-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:25px;align-items:stretch;}
-.about-card,.contact-card{padding:34px;border:1px solid rgba(212,175,55,.25);border-radius:22px;background:rgba(255,255,255,.025);}
-.about-card h3,.contact-card h3{color:var(--gold-light);font-size:22px;margin-bottom:18px;}
-.about-card p,.contact-card p{color:#aaa;line-height:2.15;font-size:15px;margin-bottom:14px;}
-.about-points{display:grid;gap:12px;margin-top:20px;}
-.about-point{padding:13px 15px;border-right:2px solid var(--gold);background:rgba(212,175,55,.035);border-radius:8px;color:#ccc;}
-.certificate-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px;}
-.certificate-card{padding:10px;border:1px solid rgba(212,175,55,.30);border-radius:20px;background:rgba(255,255,255,.025);box-shadow:0 15px 40px rgba(0,0,0,.35);transition:.35s ease;cursor:zoom-in;}
-.certificate-card:hover{transform:translateY(-6px);border-color:var(--gold);box-shadow:0 20px 50px rgba(0,0,0,.5),0 0 28px rgba(212,175,55,.12);}
-.certificate-card img{display:block;width:100%;height:auto;border-radius:13px;}
-.certificate-caption{text-align:center;color:#ccc;font-size:13px;padding:12px 8px 6px;}
-.contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
-.contact-link{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:130px;text-align:center;border:1px solid rgba(212,175,55,.25);border-radius:18px;background:rgba(255,255,255,.025);transition:.3s ease;}
-.contact-link:hover{transform:translateY(-5px);border-color:var(--gold);}
-.contact-link strong{color:var(--gold-light);font-size:18px;margin-bottom:8px;}
-.contact-link span{color:#999;font-size:13px;direction:ltr;}
-.lightbox{position:fixed;inset:0;z-index:3000;display:none;align-items:center;justify-content:center;padding:25px;background:rgba(0,0,0,.92);backdrop-filter:blur(10px);}
-.lightbox.open{display:flex;}
-.lightbox img{max-width:95vw;max-height:90vh;width:auto;height:auto;border:1px solid rgba(212,175,55,.5);border-radius:12px;box-shadow:0 0 70px rgba(0,0,0,.8);}
-.lightbox-close{position:absolute;top:18px;left:25px;width:44px;height:44px;border:1px solid var(--gold);border-radius:50%;background:#090909;color:var(--gold-light);font-size:28px;cursor:pointer;}
-@media(max-width:900px){.about-grid{grid-template-columns:1fr;}.certificate-grid{grid-template-columns:1fr;}.contact-grid{grid-template-columns:1fr;}.about-section,.certificates-section,.contact-section{padding:75px 18px;}}
-@media(max-width:600px){nav{gap:12px;}nav a{font-size:12px;}.certificate-card{padding:7px;}}
-</style>
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="VAHDANI.TRADER — مدیریت سرمایه و معامله‌گری طلا">
+    <meta property="og:description" content="معامله‌گری تخصصی در بازار انس جهانی (XAUUSD) با تمرکز بر مدیریت ریسک آماری و حفظ سرمایه.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://vahdani-trader.github.io/vahdani.trader/">
+    <meta property="og:image" content="3746(1).png">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Vazirmatn -->
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        body {
+            font-family: 'Vazirmatn', sans-serif;
+            background-color: #090A0F;
+            color: #E2E8F0;
+        }
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #FFF5C0 0%, #E6C665 50%, #997015 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .gold-border-glow {
+            box-shadow: 0 0 25px rgba(230, 198, 101, 0.15);
+            border: 1px solid rgba(230, 198, 101, 0.25);
+        }
+        .glass-card {
+            background: rgba(18, 20, 29, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .glass-card:hover {
+            border-color: rgba(230, 198, 101, 0.4);
+            box-shadow: 0 10px 30px -10px rgba(230, 198, 101, 0.2);
+        }
+    </style>
 </head>
-<body>
-<!-- =====================================================
-         HEADER
-    ===================================================== -->
-<header>
-<div class="navbar">
-<!-- BRAND -->
-<a class="brand" href="#home">
-<div class="brand-text">
-<div class="brand-name">
-                        VAHDANI.TRADER
-                    </div>
-<div class="brand-sub">
-                        PRECISION • PATIENCE • PROFIT
-                    </div>
-</div>
-</a>
-<!-- NAV -->
-<nav>
-<a class="active" href="#home">خانه</a>
-<a href="#about">درباره من</a>
-<a href="#certificates">سرتیفیکیت‌ها</a>
-<a href="#contact">تماس</a>
-</nav>
-</div>
-</header>
-<!-- =====================================================
-         HERO
-    ===================================================== -->
-<main>
-<section class="hero" id="home">
-<div class="hero-content">
-<div class="badge">
-                    VAHDANI.TRADER
+<body class="antialiased selection:bg-amber-500 selection:text-black">
+
+    <!-- Header / Navbar -->
+    <header class="fixed top-0 left-0 right-0 z-50 glass-card bg-opacity-80 backdrop-blur-md border-b border-gray-800/50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <a href="#home" class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-amber-300 via-amber-500 to-amber-700 flex items-center justify-center text-black font-black text-xl shadow-lg shadow-amber-500/20">
+                    V
                 </div>
-<h1>
-                    من
-                    <span>محمد وحدانی</span>
-                    هستم
-                </h1>
-<div class="intro-box">
-<p>
-                    فعالیت در بازارهای مالی و فارکس با تمرکز بر مدیریت ریسک، نظم معاملاتی و حفظ سرمایه انجام می‌شود.
-                </p>
-<p>
-                    هدف، ایجاد یک مسیر شفاف، اصولی و بلندمدت برای همکاری با سرمایه‌گذاران است؛ با تمرکز بر مدیریت سرمایه، کنترل سطح ریسک و تصمیم‌گیری حرفه‌ای در معاملات.
-                </p>
-<p>
-                    اگر به دنبال همکاری در بازار فارکس هستید و ترجیح می‌دهید سرمایه شما با رویکردی حرفه‌ای و مبتنی بر مدیریت ریسک معامله شود، می‌توانیم درباره شرایط همکاری و نحوه مدیریت سرمایه گفت‌وگو کنیم.
-                </p>
-<p>
-                    حفظ سرمایه و کنترل ریسک در اولویت است؛ سودآوری هدف است، اما هیچ سودی تضمین‌شده نیست.
-                </p>
-</div>
-<div class="buttons">
-<a class="btn btn-primary" href="#about">
-                        درباره من
-                    </a>
-<a class="btn btn-secondary" href="#contact">
-                        ارتباط با من
-                    </a>
-</div>
-</div>
-<!-- HERO LOGO -->
-<div class="hero-logo">
-<div class="logo-card">
-<img alt="VAHDANI.TRADER" src="3746(1).png"/>
-</div>
-</div>
-</section>
-<!-- =================================================
-             STATS
-        ================================================== -->
-<section class="stats">
-<div class="stat">
-<strong>
-                    24/7
-                </strong>
-<span>
-                    در حال یادگیری
-                </span>
-</div>
-<div class="stat">
-<strong>
-                    GOLD
-                </strong>
-<span>
-                    تمرکز روی طلا
-                </span>
-</div>
-<div class="stat">
-<strong>
-                    TRADER
-                </strong>
-<span>
-                    فعال در بازار
-                </span>
-</div>
-</section>
-</main>
-<!-- =====================================================
-         ABOUT / CERTIFICATES / CONTACT
-    ===================================================== -->
-<section class="about-section" id="about"><div class="section-title"><h2>درباره <span>من</span></h2><p>بخشی از مسیر، دیدگاه و تجربه من در دنیای معامله‌گری و بازارهای مالی.</p></div><div class="about-grid"><div class="about-card"><h3>من محمد وحدانی هستم</h3><p>تریدر و فعال بازارهای مالی هستم. مسیر من در بازار با یادگیری، تجربه، صبر و تلاش شکل گرفته است.</p><p>تمرکز من روی تحلیل منطقی، مدیریت ریسک و ساختن یک مسیر حرفه‌ای و منظم در معامله‌گری است.</p><div class="about-points"><div class="about-point">TRADER — فعال در بازارهای مالی</div><div class="about-point">PRECISION — دقت در تحلیل</div><div class="about-point">PATIENCE — صبر در تصمیم‌گیری</div></div></div><div class="about-card"><h3>نگاه من به معامله‌گری</h3><p>معامله‌گری فقط پیدا کردن نقطه ورود نیست؛ ترکیبی از تحلیل، مدیریت ریسک، نظم و صبر است.</p><p>هدف، ساختن تصمیم‌های باکیفیت و پایبندی به یک چارچوب مشخص است؛ نه دنبال کردن تصمیم‌های لحظه‌ای و احساسی.</p></div></div></section><section class="certificates-section" id="certificates"><div class="section-title"><h2><span>سرتیفیکیت</span>‌ها</h2><p>گواهی‌ها و دستاوردهای ثبت‌شده در مسیر معامله‌گری.</p></div><div class="certificate-grid"><div class="certificate-card" data-img="cert-1.jpg"><img alt="Moneta Funded Certificate - July 22 2026" src="cert-1.jpg"/><div class="certificate-caption">Moneta Funded — $25,000 — Jul 22, 2026</div></div><div class="certificate-card" data-img="cert-2.jpg"><img alt="Moneta Funded Certificate - August 2 2026" src="cert-2.jpg"/><div class="certificate-caption">Moneta Funded — $25,000 — Aug 02, 2026</div></div><div class="certificate-card" data-img="cert-3.jpg"><img alt="Zorafx Challenge Step Two Certificate" src="cert-3.jpg"/><div class="certificate-caption">Zorafx — Challenge Step Two</div></div><div class="certificate-card" data-img="cert-4.jpg"><img alt="Zorafx Challenge Step One Certificate" src="cert-4.jpg"/><div class="certificate-caption">Zorafx — Challenge Step One</div></div><div class="certificate-card" data-img="cert-5.jpg"><img alt="Zorafx LastProp Challenge Certificate" src="cert-5.jpg"/><div class="certificate-caption">Zorafx — LastProp Challenge — $25,000</div></div><div class="certificate-card" data-img="cert-6.jpg"><img alt="Fenefx Certificate of Appreciation" src="cert-6.jpg"/><div class="certificate-caption">Fenefx — Certificate of Appreciation</div></div></div></section><section class="contact-section" id="contact"><div class="section-title"><h2>ارتباط با <span>من</span></h2><p>برای ارتباط و دنبال‌کردن فعالیت‌های من از راه‌های زیر استفاده کنید.</p></div><div class="contact-grid"><a class="contact-link" href="https://instagram.com/vahdani.trader" rel="noopener" target="_blank"><strong>Instagram</strong><span>@vahdani.trader</span></a><a class="contact-link" href="tel:09148449424"><strong>تماس</strong><span>09148449424</span></a><a class="contact-link" href="#home"><strong>VAHDANI.TRADER</strong><span>بازگشت به ابتدای صفحه</span></a></div></section>
-<!-- =====================================================
-         FOOTER
-    ===================================================== -->
-<footer>
-<div class="footer-name">
-            VAHDANI.TRADER
+                <div>
+                    <span class="text-lg font-black tracking-wider gold-gradient-text block">VAHDANI.TRADER</span>
+                    <span class="text-[10px] tracking-widest text-gray-400 block -mt-1 font-mono">PRECISION • PATIENCE • PROFIT</span>
+                </div>
+            </a>
+
+            <!-- Nav Links -->
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-300">
+                <a href="#home" class="hover:text-amber-400 transition-colors">خانه</a>
+                <a href="#about" class="hover:text-amber-400 transition-colors">درباره من</a>
+                <a href="#certificates" class="hover:text-amber-400 transition-colors">سرتیفیکیت‌ها</a>
+                <a href="#faq" class="hover:text-amber-400 transition-colors">سوالات متداول</a>
+                <a href="#contact" class="hover:text-amber-400 transition-colors">تماس</a>
+            </nav>
+
+            <a href="#contact" class="hidden sm:inline-flex items-center justify-center px-5 py-2.5 text-xs font-bold text-black bg-gradient-to-r from-amber-300 to-amber-500 rounded-lg hover:from-amber-400 hover:to-amber-600 transition-all shadow-md shadow-amber-500/10">
+                گفتگو و همکاری
+            </a>
         </div>
-<p>
-            PRECISION • PATIENCE • PROFIT
-        </p>
-<p>
-            © 2026 VAHDANI.TRADER
-        </p>
-<p>
-<a href="https://instagram.com/vahdani.trader" target="_blank">
-        Instagram: @vahdani.trader
-    </a>
-</p>
-<p>
-<a href="tel:09148449424">
-        تماس: 09148449424
-    </a>
-</p> </footer>
-<div aria-hidden="true" class="lightbox" id="lightbox"><button aria-label="بستن" class="lightbox-close">×</button><img alt="سرتیفیکیت" id="lightbox-img" src=""/></div><script>(function(){const lb=document.getElementById('lightbox'),img=document.getElementById('lightbox-img');document.querySelectorAll('.certificate-card').forEach(c=>c.addEventListener('click',()=>{img.src=c.dataset.img;lb.classList.add('open');lb.setAttribute('aria-hidden','false');}));function close(){lb.classList.remove('open');lb.setAttribute('aria-hidden','true');img.src='';}lb.querySelector('.lightbox-close').addEventListener('click',close);lb.addEventListener('click',e=>{if(e.target===lb)close();});document.addEventListener('keydown',e=>{if(e.key==='Escape')close();});})();</script><script>document.querySelectorAll('nav a[href^="#"]').forEach(a=>a.addEventListener('click',()=>{document.querySelectorAll('nav a').forEach(x=>x.classList.remove('active'));a.classList.add('active');}));</script></body>
+    </header>
+
+    <main class="pt-28">
+        <!-- Hero Section -->
+        <section id="home" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <div class="lg:col-span-7 space-y-6">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-medium">
+                        <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
+                        معامله‌گر اختصاصی طلا (XAUUSD) & مدیریت ریسک
+                    </div>
+
+                    <h1 class="text-3xl sm:text-5xl font-black text-white leading-tight">
+                        من <span class="gold-gradient-text">محمد وحدانی</span> هستم
+                    </h1>
+
+                    <p class="text-base sm:text-lg text-gray-300 leading-relaxed font-light">
+                        مدیریت سیستماتیک سرمایه و معامله‌گری حرفه‌ای در بازار انس جهانی. اولویت اصلی در تمامی تصمیمات معاملاتی، **حفظ اصل سرمایه**، **کنترل افت حساب (Drawdown)** و اجرای دقیق استراتژی‌های مبتنی بر احتمال ریاضی است.
+                    </p>
+
+                    <div class="p-4 rounded-xl bg-gray-900/80 border border-gray-800 text-sm text-gray-400 space-y-2 font-mono">
+                        <div class="flex items-center justify-between">
+                            <span>پیروی از حد ضرر سخت‌گیرانه:</span>
+                            <span class="text-amber-400 font-bold">حداکثر ۱٪ در هر پوزیشن</span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span>تمرکز دارایی:</span>
+                            <span class="text-amber-400 font-bold">Spot Gold / XAUUSD</span>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-wrap items-center gap-4 pt-2">
+                        <a href="#contact" class="px-7 py-3.5 rounded-xl bg-gradient-to-r from-amber-400 to-amber-600 text-black font-bold text-sm shadow-lg shadow-amber-500/20 hover:scale-[1.02] transition-transform">
+                            ارتباط و بررسی شرایط همکاری
+                        </a>
+                        <a href="#certificates" class="px-7 py-3.5 rounded-xl bg-gray-900 border border-gray-700 text-gray-200 font-semibold text-sm hover:bg-gray-800 transition-colors">
+                            مشاهده سرتیفیکیت‌ها
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Profile Image Container -->
+                <div class="lg:col-span-5 flex justify-center">
+                    <div class="relative w-full max-w-md">
+                        <div class="absolute -inset-1 rounded-3xl bg-gradient-to-r from-amber-500/30 to-amber-200/10 blur-xl opacity-75"></div>
+                        <div class="relative rounded-2xl glass-card p-3 gold-border-glow overflow-hidden">
+                            <img id="mainProfileImg" src="3746(1).png" alt="محمد وحدانی - VAHDANI.TRADER" 
+                                 class="w-full h-[420px] object-cover rounded-xl bg-gray-950">
+                            <div class="p-4 text-center">
+                                <h3 class="text-lg font-bold text-white">MOHAMMAD VAHDANI</h3>
+                                <p class="text-xs text-amber-400 font-mono mt-1">INSTITUTIONAL GOLD TRADER</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="border-y border-gray-800/80 bg-gray-950/50 py-10">
+            <div class="max-w-7xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+                <div class="p-4">
+                    <div class="text-3xl font-black gold-gradient-text font-mono">XAUUSD</div>
+                    <div class="text-xs text-gray-400 mt-1">تمرکز تخصصی بر انس طلا</div>
+                </div>
+                <div class="p-4">
+                    <div class="text-3xl font-black text-white font-mono">STRICT</div>
+                    <div class="text-xs text-gray-400 mt-1">مدیریت ریسک ریاضی</div>
+                </div>
+                <div class="p-4">
+                    <div class="text-3xl font-black gold-gradient-text font-mono">MULTI-FUNDED</div>
+                    <div class="text-xs text-gray-400 mt-1">دارای چالش‌های پاس‌شده</div>
+                </div>
+                <div class="p-4">
+                    <div class="text-3xl font-black text-white font-mono">24/7</div>
+                    <div class="text-xs text-gray-400 mt-1">پایش زنده و ژورنال‌نویسی</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+                <h2 class="text-2xl sm:text-4xl font-black text-white">نگاه حرفه‌ای به <span class="gold-gradient-text">بازار مالی</span></h2>
+                <p class="text-gray-400 text-sm">معامله‌گری ترکیب انضباط روانی، تحلیل نقدینگی و احترام به ریسک است.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="glass-card p-8 rounded-2xl space-y-4">
+                    <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 text-xl">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white">مدیریت ریسک ارشد</h3>
+                    <p class="text-sm text-gray-400 leading-relaxed">
+                        اولویت اول در بازار بقاست. بدون حد ضرر مشخص هیچ معامله‌ای انجام نمی‌شود و حجم واردشده کاملاً متناسب با بالانس حساب محاسبه می‌گردد.
+                    </p>
+                </div>
+
+                <div class="glass-card p-8 rounded-2xl space-y-4">
+                    <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 text-xl">
+                        <i class="fa-solid fa-chart-line"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white">تخصص تکی روی طلا</h3>
+                    <p class="text-sm text-gray-400 leading-relaxed">
+                        تمرکز کامل بر رفتار حرکتی، جلسات معاملاتی (سشن‌ها) و ساختارهای نقدینگی انس جهانی جهت دستیابی به بالاترین کیفیت تحلیل.
+                    </p>
+                </div>
+
+                <div class="glass-card p-8 rounded-2xl space-y-4">
+                    <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 text-xl">
+                        <i class="fa-solid fa-brain"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white">روانشناسی و دسیپلین</h3>
+                    <p class="text-sm text-gray-400 leading-relaxed">
+                        حذف تصمیمات هیجانی و لحظه‌ای؛ معامله‌گری فقط بر اساس پلان مشخص، چک‌لیست ورودی استاندارد و سیستم ژورنال‌نویسی مکتوب.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certificates Section -->
+        <section id="certificates" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 border-t border-gray-900">
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
+                <h2 class="text-2xl sm:text-4xl font-black text-white">سرتیفیکیت‌ها و <span class="gold-gradient-text">مدارک پاس‌شده</span></h2>
+                <p class="text-gray-400 text-sm">گواهی‌های اعتبارسنجی شده از چالش‌های سرمایه‌گذاری و پروپ‌فرم‌ها (برای مشاهده بزرگ کلیک کنید)</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Cert 1 -->
+                <div onclick="openLightbox('cert-1.jpg')" class="glass-card rounded-xl overflow-hidden cursor-pointer group transition-all">
+                    <div class="relative overflow-hidden h-52 bg-gray-950">
+                        <img src="cert-1.jpg" alt="Moneta Funded Certificate" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity text-amber-300 font-bold text-sm">
+                            <i class="fa-solid fa-magnifying-glass-plus ml-2"></i> مشاهده تصویر بزرگ
+                        </div>
+                    </div>
+                    <div class="p-4 border-t border-gray-800 text-center">
+                        <h4 class="text-sm font-bold text-white">Moneta Funded — $25,000</h4>
+                        <p class="text-xs text-gray-500 mt-1">July 22, 2026</p>
+                    </div>
+                </div>
+
+                <!-- Cert 2 -->
+                <div onclick="openLightbox('cert-2.jpg')" class="glass-card rounded-xl overflow-hidden cursor-pointer group transition-all">
+                    <div class="relative overflow-hidden h-52 bg-gray-950">
+                        <img src="cert-2.jpg" alt="Moneta Funded Certificate" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity text-amber-300 font-bold text-sm">
+                            <i class="fa-solid fa-magnifying-glass-plus ml-2"></i> مشاهده تصویر بزرگ
+                        </div>
+                    </div>
+                    <div class="p-4 border-t border-gray-800 text-center">
+                        <h4 class="text-sm font-bold text-white">Moneta Funded — $25,000</h4>
+                        <p class="text-xs text-gray-500 mt-1">August 02, 2026</p>
+                    </div>
+                </div>
+
+                <!-- Cert 3 -->
+                <div onclick="openLightbox('cert-3.jpg')" class="glass-card rounded-xl overflow-hidden cursor-pointer group transition-all">
+                    <div class="relative overflow-hidden h-52 bg-gray-950">
+                        <img src="cert-3.jpg" alt="Zorafx Challenge Step Two" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity text-amber-300 font-bold text-sm">
+                            <i class="fa-solid fa-magnifying-glass-plus ml-2"></i> مشاهده تصویر بزرگ
+                        </div>
+                    </div>
+                    <div class="p-4 border-t border-gray-800 text-center">
+                        <h4 class="text-sm font-bold text-white">Zorafx — Challenge Step Two</h4>
+                        <p class="text-xs text-gray-500 mt-1">Phase 2 Passed</p>
+                    </div>
+                </div>
+
+                <!-- Cert 4 -->
+                <div onclick="openLightbox('cert-4.jpg')" class="glass-card rounded-xl overflow-hidden cursor-pointer group transition-all">
+                    <div class="relative overflow-hidden h-52 bg-gray-950">
+                        <img src="cert-4.jpg" alt="Zorafx Challenge Step One" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity text-amber-300 font-bold text-sm">
+                            <i class="fa-solid fa-magnifying-glass-plus ml-2"></i> مشاهده تصویر بزرگ
+                        </div>
+                    </div>
+                    <div class="p-4 border-t border-gray-800 text-center">
+                        <h4 class="text-sm font-bold text-white">Zorafx — Challenge Step One</h4>
+                        <p class="text-xs text-gray-500 mt-1">Phase 1 Passed</p>
+                    </div>
+                </div>
+
+                <!-- Cert 5 -->
+                <div onclick="openLightbox('cert-5.jpg')" class="glass-card rounded-xl overflow-hidden cursor-pointer group transition-all">
+                    <div class="relative overflow-hidden h-52 bg-gray-950">
+                        <img src="cert-5.jpg" alt="Zorafx LastProp Challenge" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity text-amber-300 font-bold text-sm">
+                            <i class="fa-solid fa-magnifying-glass-plus ml-2"></i> مشاهده تصویر بزرگ
+                        </div>
+                    </div>
+                    <div class="p-4 border-t border-gray-800 text-center">
+                        <h4 class="text-sm font-bold text-white">Zorafx — LastProp $25,000</h4>
+                        <p class="text-xs text-gray-500 mt-1">Funded Certificate</p>
+                    </div>
+                </div>
+
+                <!-- Cert 6 -->
+                <div onclick="openLightbox('cert-6.jpg')" class="glass-card rounded-xl overflow-hidden cursor-pointer group transition-all">
+                    <div class="relative overflow-hidden h-52 bg-gray-950">
+                        <img src="cert-6.jpg" alt="Fenefx Certificate" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity text-amber-300 font-bold text-sm">
+                            <i class="fa-solid fa-magnifying-glass-plus ml-2"></i> مشاهده تصویر بزرگ
+                        </div>
+                    </div>
+                    <div class="p-4 border-t border-gray-800 text-center">
+                        <h4 class="text-sm font-bold text-white">Fenefx — Certificate of Appreciation</h4>
+                        <p class="text-xs text-gray-500 mt-1">Acknowledgement</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="max-w-4xl mx-auto px-4 py-20 border-t border-gray-900">
+            <div class="text-center mb-12">
+                <h2 class="text-2xl sm:text-3xl font-black text-white">سوالات متداول <span class="gold-gradient-text">سرمایه‌گذاران</span></h2>
+            </div>
+
+            <div class="space-y-4">
+                <div class="glass-card rounded-xl p-5 cursor-pointer" onclick="toggleFaq(1)">
+                    <div class="flex justify-between items-center font-bold text-white text-sm sm:text-base">
+                        <span>آیا میزان سود ماهانه تضمین می‌شود؟</span>
+                        <i id="faqIcon-1" class="fa-solid fa-chevron-down text-amber-400 transition-transform"></i>
+                    </div>
+                    <p id="faqText-1" class="hidden text-xs sm:text-sm text-gray-400 mt-3 leading-relaxed">
+                        خیر. در بازارهای مالی هیچ سود تضمین‌شده‌ای وجود ندارد. تمرکز اصلی بر روی کنترل خطرات، مدیریت افت حساب (Drawdown) و سودآوری مستمر بر پایه ریسک به ریوارد منطقی است.
+                    </p>
+                </div>
+
+                <div class="glass-card rounded-xl p-5 cursor-pointer" onclick="toggleFaq(2)">
+                    <div class="flex justify-between items-center font-bold text-white text-sm sm:text-base">
+                        <span>استراتژی اصلی معامله‌گری چیست؟</span>
+                        <i id="faqIcon-2" class="fa-solid fa-chevron-down text-amber-400 transition-transform"></i>
+                    </div>
+                    <p id="faqText-2" class="hidden text-xs sm:text-sm text-gray-400 mt-3 leading-relaxed">
+                        استراتژی بر پایه تحلیل ساختار نقدینگی در انس طلا (XAUUSD)، ترکیب سشن‌های نیویورک و لندن، و ورود در نقاط کم‌ریسک همراه با حد ضرر تاییدشده انجام می‌گیرد.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 border-t border-gray-900">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <h2 class="text-2xl sm:text-4xl font-black text-white">راه ارتباطی و <span class="gold-gradient-text">مذاکره</span></h2>
+                <p class="text-gray-400 text-sm mt-2">جهت بررسی شرایط مدیریت حساب، مشاوره یا رزومه‌گیری می‌توانید از کانال‌های زیر اقدام کنید.</p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto">
+                <!-- Instagram -->
+                <a href="https://instagram.com/vahdani.trader" target="_blank" rel="noopener" class="glass-card p-6 rounded-2xl text-center space-y-3 block hover:-translate-y-1 transition-transform">
+                    <i class="fa-brands fa-instagram text-3xl text-pink-500"></i>
+                    <h4 class="font-bold text-white text-base">اینستاگرام</h4>
+                    <p class="text-xs text-gray-400 dir-ltr">@vahdani.trader</p>
+                </a>
+
+                <!-- Phone -->
+                <div class="glass-card p-6 rounded-2xl text-center space-y-3 relative">
+                    <i class="fa-solid fa-phone text-3xl text-amber-400"></i>
+                    <h4 class="font-bold text-white text-base">تماس مستقیم</h4>
+                    <a href="tel:+989148449424" class="text-xs text-amber-300 font-mono block hover:underline dir-ltr">09148449424</a>
+                    <button onclick="copyPhone()" class="text-[10px] bg-gray-800 text-gray-300 px-3 py-1 rounded-md hover:bg-gray-700 transition-colors mt-1">
+                        <i class="fa-regular fa-copy ml-1"></i> کپی شماره
+                    </button>
+                </div>
+
+                <!-- Telegram -->
+                <a href="https://t.me/vahdani_trader" target="_blank" rel="noopener" class="glass-card p-6 rounded-2xl text-center space-y-3 block hover:-translate-y-1 transition-transform">
+                    <i class="fa-brands fa-telegram text-3xl text-sky-400"></i>
+                    <h4 class="font-bold text-white text-base">تلگرام</h4>
+                    <p class="text-xs text-gray-400 dir-ltr">@vahdani_trader</p>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Lightbox Modal for Certificates -->
+    <div id="lightbox" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-md hidden flex items-center justify-center p-4">
+        <button onclick="closeLightbox()" class="absolute top-6 right-6 text-white text-3xl hover:text-amber-400 transition-colors">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+        <img id="lightboxImg" src="" alt="Certificate" class="max-w-full max-h-[90vh] rounded-lg border border-amber-500/30 shadow-2xl">
+    </div>
+
+    <!-- Footer -->
+    <footer class="border-t border-gray-900 bg-gray-950 py-8 text-center text-xs text-gray-500 space-y-2">
+        <p class="font-bold text-gray-400">VAHDANI.TRADER — PRECISION • PATIENCE • PROFIT</p>
+        <p>© 2026 کلیه حقوق محفوظ است. معامله‌گری در بازارهای مالی همراه با ریسک است.</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        function openLightbox(src) {
+            document.getElementById('lightboxImg').src = src;
+            document.getElementById('lightbox').classList.remove('hidden');
+        }
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.add('hidden');
+        }
+        function toggleFaq(id) {
+            const text = document.getElementById(`faqText-${id}`);
+            const icon = document.getElementById(`faqIcon-${id}`);
+            text.classList.toggle('hidden');
+            icon.classList.toggle('rotate-180');
+        }
+        function copyPhone() {
+            navigator.clipboard.writeText('09148449424');
+            alert('شماره تماس کپی شد: 09148449424');
+        }
+    </script>
+</body>
 </html>
