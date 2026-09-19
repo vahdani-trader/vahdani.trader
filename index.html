@@ -93,7 +93,7 @@
                     </h1>
 
                     <p class="text-base sm:text-lg text-gray-300 leading-relaxed font-light">
-                        مدیریت سیستماتیک سرمایه و معامله‌گری حرفه‌ای در بازار انس جهانی. اولویت اصلی در تمامی تصمیمات معاملاتی، **حفظ اصل سرمایه**، **کنترل افت حساب (Drawdown)** و اجرای دقیق استراتژی‌های مبتنی بر احتمال ریاضی است.
+                        مدیریت سیستماتیک سرمایه و معامله‌گری حرفه‌ای در بازار انس جهانی. اولویت اصلی در تمامی تصمیمات معاملاتی، <strong class="text-white font-bold">حفظ اصل سرمایه</strong>، <strong class="text-white font-bold">کنترل افت حساب (Drawdown)</strong> و اجرای دقیق استراتژی‌های مبتنی بر احتمال ریاضی است.
                     </p>
 
                     <div class="p-4 rounded-xl bg-gray-900/80 border border-gray-800 text-sm text-gray-400 space-y-2 font-mono">
@@ -313,81 +313,4 @@
                         <span>استراتژی اصلی معامله‌گری چیست؟</span>
                         <i id="faqIcon-2" class="fa-solid fa-chevron-down text-amber-400 transition-transform"></i>
                     </div>
-                    <p id="faqText-2" class="hidden text-xs sm:text-sm text-gray-400 mt-3 leading-relaxed">
-                        استراتژی بر پایه تحلیل ساختار نقدینگی در انس طلا (XAUUSD)، ترکیب سشن‌های نیویورک و لندن، و ورود در نقاط کم‌ریسک همراه با حد ضرر تاییدشده انجام می‌گیرد.
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section id="contact" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 border-t border-gray-900">
-            <div class="text-center max-w-2xl mx-auto mb-12">
-                <h2 class="text-2xl sm:text-4xl font-black text-white">راه ارتباطی و <span class="gold-gradient-text">مذاکره</span></h2>
-                <p class="text-gray-400 text-sm mt-2">جهت بررسی شرایط مدیریت حساب، مشاوره یا رزومه‌گیری می‌توانید از کانال‌های زیر اقدام کنید.</p>
-            </div>
-
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto">
-                <!-- Instagram -->
-                <a href="https://instagram.com/vahdani.trader" target="_blank" rel="noopener" class="glass-card p-6 rounded-2xl text-center space-y-3 block hover:-translate-y-1 transition-transform">
-                    <i class="fa-brands fa-instagram text-3xl text-pink-500"></i>
-                    <h4 class="font-bold text-white text-base">اینستاگرام</h4>
-                    <p class="text-xs text-gray-400 dir-ltr">@vahdani.trader</p>
-                </a>
-
-                <!-- Phone -->
-                <div class="glass-card p-6 rounded-2xl text-center space-y-3 relative">
-                    <i class="fa-solid fa-phone text-3xl text-amber-400"></i>
-                    <h4 class="font-bold text-white text-base">تماس مستقیم</h4>
-                    <a href="tel:+989148449424" class="text-xs text-amber-300 font-mono block hover:underline dir-ltr">09148449424</a>
-                    <button onclick="copyPhone()" class="text-[10px] bg-gray-800 text-gray-300 px-3 py-1 rounded-md hover:bg-gray-700 transition-colors mt-1">
-                        <i class="fa-regular fa-copy ml-1"></i> کپی شماره
-                    </button>
-                </div>
-
-                <!-- Telegram -->
-                <a href="https://t.me/vahdani_trader" target="_blank" rel="noopener" class="glass-card p-6 rounded-2xl text-center space-y-3 block hover:-translate-y-1 transition-transform">
-                    <i class="fa-brands fa-telegram text-3xl text-sky-400"></i>
-                    <h4 class="font-bold text-white text-base">تلگرام</h4>
-                    <p class="text-xs text-gray-400 dir-ltr">@vahdani_trader</p>
-                </a>
-            </div>
-        </section>
-    </main>
-
-    <!-- Lightbox Modal for Certificates -->
-    <div id="lightbox" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-md hidden flex items-center justify-center p-4">
-        <button onclick="closeLightbox()" class="absolute top-6 right-6 text-white text-3xl hover:text-amber-400 transition-colors">
-            <i class="fa-solid fa-xmark"></i>
-        </button>
-        <img id="lightboxImg" src="" alt="Certificate" class="max-w-full max-h-[90vh] rounded-lg border border-amber-500/30 shadow-2xl">
-    </div>
-
-    <!-- Footer -->
-    <footer class="border-t border-gray-900 bg-gray-950 py-8 text-center text-xs text-gray-500 space-y-2">
-        <p class="font-bold text-gray-400">VAHDANI.TRADER — PRECISION • PATIENCE • PROFIT</p>
-        <p>© 2026 کلیه حقوق محفوظ است. معامله‌گری در بازارهای مالی همراه با ریسک است.</p>
-    </footer>
-
-    <!-- Scripts -->
-    <script>
-        function openLightbox(src) {
-            document.getElementById('lightboxImg').src = src;
-            document.getElementById('lightbox').classList.remove('hidden');
-        }
-        function closeLightbox() {
-            document.getElementById('lightbox').classList.add('hidden');
-        }
-        function toggleFaq(id) {
-            const text = document.getElementById(`faqText-${id}`);
-            const icon = document.getElementById(`faqIcon-${id}`);
-            text.classList.toggle('hidden');
-            icon.classList.toggle('rotate-180');
-        }
-        function copyPhone() {
-            navigator.clipboard.writeText('09148449424');
-            alert('شماره تماس کپی شد: 09148449424');
-        }
-    </script>
-</body>
-</html>
+                    <p id="faqText-2" cl
