@@ -1,316 +1,348 @@
+```html
 <!DOCTYPE html>
 <html lang="fa" dir="rtl" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VAHDANI.TRADER | Institutional Gold Trading & Capital Management</title>
+    <title>VAHDANI.TRADER | مدیریت تخصصی سرمایه و معامله‌گری طلا</title>
     
-    <!-- Open Graph Meta Tags -->
-    <meta property="og:title" content="VAHDANI.TRADER — مدیریت سرمایه و معامله‌گری طلا">
-    <meta property="og:description" content="معامله‌گری تخصصی در بازار انس جهانی (XAUUSD) با تمرکز بر مدیریت ریسک آماری و حفظ سرمایه.">
+    <!-- Open Graph Meta Tags (پیش‌نمایش شیک در تلگرام و واتساپ) -->
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://vahdani-trader.github.io/vahdani.trader/">
+    <meta property="og:title" content="VAHDANI.TRADER | محمد وحدانی - تریدر تخصصی طلا">
+    <meta property="og:description" content="معامله‌گری سیستماتیک، مدیریت ریسک ارشد و حفظ اصل سرمایه در بازار انس جهانی طلا (XAUUSD)">
     <meta property="og:image" content="3746(1).png">
+    <meta property="og:url" content="https://vahdani-trader.github.io/vahdani.trader/">
 
+    <!-- Google Fonts (Vazirmatn & Plus Jakarta Sans) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Vazirmatn:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Google Fonts: Vazirmatn -->
-    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;700;900&display=swap" rel="stylesheet">
-    
-    <!-- FontAwesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        darkBg: '#0B0E14',
+                        cardBg: 'rgba(18, 23, 33, 0.75)',
+                        goldAccent: '#D4AF37',
+                        goldGlow: '#F59E0B',
+                        emeraldAccent: '#10B981',
+                        slateBorder: 'rgba(255, 255, 255, 0.08)'
+                    },
+                    fontFamily: {
+                        vazir: ['Vazirmatn', 'sans-serif'],
+                        en: ['Plus Jakarta Sans', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
 
     <style>
         body {
             font-family: 'Vazirmatn', sans-serif;
-            background-color: #090A0F;
+            background-color: #0B0E14;
             color: #E2E8F0;
+            overflow-x: hidden;
         }
-        .gold-gradient-text {
-            background: linear-gradient(135deg, #FFF5C0 0%, #E6C665 50%, #997015 100%);
+
+        /* Glassmorphism Styles */
+        .glass-panel {
+            background: rgba(18, 23, 33, 0.7);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .glass-panel-gold {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.05) 0%, rgba(18, 23, 33, 0.8) 100%);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(212, 175, 55, 0.25);
+        }
+
+        .gold-text-gradient {
+            background: linear-gradient(135deg, #FFF5C0 0%, #D4AF37 50%, #9A7B1C 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
+
         .gold-border-glow {
-            box-shadow: 0 0 25px rgba(230, 198, 101, 0.15);
-            border: 1px solid rgba(230, 198, 101, 0.25);
+            box-shadow: 0 0 25px -5px rgba(212, 175, 55, 0.25);
         }
-        .glass-card {
-            background: rgba(18, 20, 29, 0.7);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+
+        /* Ambient Glow Backgrounds */
+        .ambient-glow-1 {
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.12) 0%, rgba(0,0,0,0) 70%);
+            top: -100px;
+            right: -100px;
+            pointer-events: none;
+            z-index: 0;
         }
-        .glass-card:hover {
-            border-color: rgba(230, 198, 101, 0.4);
-            box-shadow: 0 10px 30px -10px rgba(230, 198, 101, 0.2);
+
+        .ambient-glow-2 {
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(16, 185, 129, 0.08) 0%, rgba(0,0,0,0) 70%);
+            bottom: 10%;
+            left: -200px;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0B0E14;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1E293B;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #D4AF37;
         }
     </style>
 </head>
-<body class="antialiased selection:bg-amber-500 selection:text-black">
+<body class="relative min-h-screen">
 
-    <!-- Header / Navbar -->
-    <header class="fixed top-0 left-0 right-0 z-50 glass-card bg-opacity-80 backdrop-blur-md border-b border-gray-800/50">
+    <!-- Ambient Glow Effects -->
+    <div class="ambient-glow-1"></div>
+    <div class="ambient-glow-2"></div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="fixed bottom-6 left-6 z-50 transform translate-y-20 opacity-0 transition-all duration-300 bg-emerald-500 text-slate-950 font-bold px-5 py-3 rounded-xl shadow-2xl flex items-center gap-3 pointer-events-none">
+        <i class="fa-solid fa-circle-check text-xl"></i>
+        <span id="toast-message">شماره تلفن با موفقیت کپی شد!</span>
+    </div>
+
+    <!-- 1. HEADER / NAVIGATION -->
+    <header class="sticky top-0 z-40 w-full glass-panel border-b border-slateBorder/50">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            <a href="#home" class="flex items-center gap-3">
-                <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-amber-300 via-amber-500 to-amber-700 flex items-center justify-center text-black font-black text-xl shadow-lg shadow-amber-500/20">
-                    V
+            
+            <!-- Brand Logo -->
+            <a href="#home" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-amber-600 via-amber-400 to-amber-200 flex items-center justify-center shadow-lg shadow-amber-500/20 group-hover:scale-105 transition-transform">
+                    <i class="fa-solid fa-chart-line text-slate-950 text-xl font-black"></i>
                 </div>
                 <div>
-                    <span class="text-lg font-black tracking-wider gold-gradient-text block">VAHDANI.TRADER</span>
-                    <span class="text-[10px] tracking-widest text-gray-400 block -mt-1 font-mono">PRECISION • PATIENCE • PROFIT</span>
+                    <span class="font-en font-black text-xl tracking-wider text-white block leading-none">VAHDANI<span class="text-amber-400">.TRADER</span></span>
+                    <span class="text-[10px] text-amber-400/80 font-en tracking-widest uppercase block mt-1">Institutional Gold Trading</span>
                 </div>
             </a>
 
-            <!-- Nav Links -->
-            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-gray-300">
+            <!-- Navigation Links -->
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
                 <a href="#home" class="hover:text-amber-400 transition-colors">خانه</a>
                 <a href="#about" class="hover:text-amber-400 transition-colors">درباره من</a>
+                <a href="#risk-system" class="hover:text-amber-400 transition-colors">سیستم ریسک</a>
                 <a href="#certificates" class="hover:text-amber-400 transition-colors">سرتیفیکیت‌ها</a>
                 <a href="#faq" class="hover:text-amber-400 transition-colors">سوالات متداول</a>
                 <a href="#contact" class="hover:text-amber-400 transition-colors">تماس</a>
             </nav>
 
-            <a href="#contact" class="hidden sm:inline-flex items-center justify-center px-5 py-2.5 text-xs font-bold text-black bg-gradient-to-r from-amber-300 to-amber-500 rounded-lg hover:from-amber-400 hover:to-amber-600 transition-all shadow-md shadow-amber-500/10">
-                گفتگو و همکاری
-            </a>
+            <!-- CTA Header Button -->
+            <div class="flex items-center gap-3">
+                <a href="https://t.me/vahdani_trader" target="_blank" class="hidden sm:inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs transition-all shadow-lg shadow-amber-500/20 hover:scale-105">
+                    <i class="fa-brands fa-telegram text-base"></i>
+                    <span>گفتگو در تلگرام</span>
+                </a>
+                
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden p-2 text-slate-300 hover:text-white">
+                    <i class="fa-solid fa-bars-staggered text-2xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="hidden md:hidden glass-panel border-t border-slateBorder px-6 py-6 space-y-4">
+            <a href="#home" class="block text-slate-200 hover:text-amber-400 font-medium">خانه</a>
+            <a href="#about" class="block text-slate-200 hover:text-amber-400 font-medium">درباره من</a>
+            <a href="#risk-system" class="block text-slate-200 hover:text-amber-400 font-medium">سیستم مدیریت ریسک</a>
+            <a href="#certificates" class="block text-slate-200 hover:text-amber-400 font-medium">سرتیفیکیت‌ها</a>
+            <a href="#faq" class="block text-slate-200 hover:text-amber-400 font-medium">سوالات متداول</a>
+            <a href="#contact" class="block text-slate-200 hover:text-amber-400 font-medium">تماس باما</a>
+            <a href="https://t.me/vahdani_trader" target="_blank" class="w-full text-center py-3 rounded-xl bg-amber-500 text-slate-950 font-bold text-sm block">ارتباط سریع در تلگرام</a>
         </div>
     </header>
 
-    <main class="pt-28">
-        <!-- Hero Section -->
-        <section id="home" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20">
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+    <!-- 2. HERO SECTION -->
+    <section id="home" class="relative pt-12 pb-20 md:py-24 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
                 
-                <div class="lg:col-span-7 space-y-6">
-                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-medium">
-                        <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
-                        معامله‌گر اختصاصی طلا (XAUUSD) & مدیریت ریسک
+                <!-- Text Column -->
+                <div class="lg:col-span-7 space-y-8 text-center lg:text-right">
+                    
+                    <!-- Live Status Badge -->
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-panel-gold border border-amber-500/30 text-amber-300 text-xs font-semibold">
+                        <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                        <span>فعالیت تخصصی در بازار انس جهانی طلا (XAUUSD)</span>
                     </div>
 
-                    <h1 class="text-3xl sm:text-5xl font-black text-white leading-tight">
-                        من <span class="gold-gradient-text">محمد وحدانی</span> هستم
+                    <!-- Main Headline -->
+                    <h1 class="text-3xl sm:text-5xl lg:text-6xl font-black leading-tight sm:leading-tight text-white">
+                        من <span class="gold-text-gradient">محمد وحدانی</span> هستم؛
+                        <br>
+                        <span class="text-2xl sm:text-4xl font-bold text-slate-300 mt-2 block">معامله‌گر و مدیر ریسک بازارهای مالی</span>
                     </h1>
 
-                    <p class="text-base sm:text-lg text-gray-300 leading-relaxed font-light">
-                        مدیریت سیستماتیک سرمایه و معامله‌گری حرفه‌ای در بازار انس جهانی. اولویت اصلی در تمامی تصمیمات معاملاتی، <strong class="text-white font-bold">حفظ اصل سرمایه</strong>، <strong class="text-white font-bold">کنترل افت حساب (Drawdown)</strong> و اجرای دقیق استراتژی‌های مبتنی بر احتمال ریاضی است.
+                    <!-- Description Paragraphs -->
+                    <p class="text-slate-300 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto lg:mx-0 font-light">
+                        تمرکز اصلی من بر <strong class="text-amber-300 font-semibold">مدیریت علم‌محور سرمایه</strong>، انضباط شخصی در معامله‌گری و حفظ اصل دارایی است. هدف، ایجاد یک مسیر شفاف، مستمر و با ثبات برای همکاری با سرمایه‌گذاران و صندوق‌هاست.
                     </p>
 
-                    <div class="p-4 rounded-xl bg-gray-900/80 border border-gray-800 text-sm text-gray-400 space-y-2 font-mono">
-                        <div class="flex items-center justify-between">
-                            <span>پیروی از حد ضرر سخت‌گیرانه:</span>
-                            <span class="text-amber-400 font-bold">حداکثر ۱٪ در هر پوزیشن</span>
+                    <!-- Feature Badges -->
+                    <div class="grid grid-cols-3 gap-3 pt-2 max-w-lg mx-auto lg:mx-0 text-center">
+                        <div class="p-3 rounded-xl glass-panel border border-slateBorder">
+                            <span class="block text-xs text-slate-400 mb-1">حد ریسک هر پوزیشن</span>
+                            <span class="text-amber-400 font-en font-bold text-base sm:text-lg">≤ 1.0%</span>
                         </div>
-                        <div class="flex items-center justify-between">
-                            <span>تمرکز دارایی:</span>
-                            <span class="text-amber-400 font-bold">Spot Gold / XAUUSD</span>
+                        <div class="p-3 rounded-xl glass-panel border border-slateBorder">
+                            <span class="block text-xs text-slate-400 mb-1">تأییدیه پرپ‌ها</span>
+                            <span class="text-emerald-400 font-en font-bold text-base sm:text-lg">$75,000+</span>
+                        </div>
+                        <div class="p-3 rounded-xl glass-panel border border-slateBorder">
+                            <span class="block text-xs text-slate-400 mb-1">نماد معاملاتی</span>
+                            <span class="text-amber-400 font-en font-bold text-base sm:text-lg">XAUUSD</span>
                         </div>
                     </div>
 
-                    <div class="flex flex-wrap items-center gap-4 pt-2">
-                        <a href="#contact" class="px-7 py-3.5 rounded-xl bg-gradient-to-r from-amber-400 to-amber-600 text-black font-bold text-sm shadow-lg shadow-amber-500/20 hover:scale-[1.02] transition-transform">
-                            ارتباط و بررسی شرایط همکاری
+                    <!-- CTA Actions -->
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+                        <a href="#contact" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-bold text-sm shadow-xl shadow-amber-500/25 transition-all transform hover:-translate-y-0.5 flex items-center justify-center gap-3">
+                            <i class="fa-solid fa-handshake-angle text-lg"></i>
+                            <span>درخواست بررسی شرایط همکاری</span>
                         </a>
-                        <a href="#certificates" class="px-7 py-3.5 rounded-xl bg-gray-900 border border-gray-700 text-gray-200 font-semibold text-sm hover:bg-gray-800 transition-colors">
-                            مشاهده سرتیفیکیت‌ها
+                        <a href="#certificates" class="w-full sm:w-auto px-8 py-4 rounded-xl glass-panel hover:bg-slate-800/80 text-slate-200 font-semibold text-sm border border-slateBorder transition-all flex items-center justify-center gap-3">
+                            <i class="fa-solid fa-certificate text-amber-400 text-lg"></i>
+                            <span>مشاهده سرتیفیکیت‌ها</span>
                         </a>
                     </div>
                 </div>
 
-                <!-- Profile Image Container -->
+                <!-- Profile Photo Card Column -->
                 <div class="lg:col-span-5 flex justify-center">
                     <div class="relative w-full max-w-md">
-                        <div class="absolute -inset-1 rounded-3xl bg-gradient-to-r from-amber-500/30 to-amber-200/10 blur-xl opacity-75"></div>
-                        <div class="relative rounded-2xl glass-card p-3 gold-border-glow overflow-hidden">
-                            <img id="mainProfileImg" src="3746(1).png" alt="محمد وحدانی - VAHDANI.TRADER" 
-                                 class="w-full h-[420px] object-cover rounded-xl bg-gray-950">
-                            <div class="p-4 text-center">
-                                <h3 class="text-lg font-bold text-white">MOHAMMAD VAHDANI</h3>
-                                <p class="text-xs text-amber-400 font-mono mt-1">INSTITUTIONAL GOLD TRADER</p>
+                        <!-- Background Glow behind Image -->
+                        <div class="absolute inset-0 bg-gradient-to-tr from-amber-500/20 to-emerald-500/20 rounded-3xl blur-2xl transform rotate-3"></div>
+                        
+                        <!-- Main Card Container -->
+                        <div class="relative rounded-3xl glass-panel p-4 border border-amber-500/30 gold-border-glow overflow-hidden">
+                            <div class="relative rounded-2xl overflow-hidden bg-slate-900 aspect-square">
+                                <img src="3746(1).png" alt="محمد وحدانی - VAHDANI.TRADER" class="w-full h-full object-cover object-center transform hover:scale-105 transition-transform duration-500">
+                                <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-80"></div>
+                            </div>
+
+                            <!-- Floating Bottom Overlay Card -->
+                            <div class="mt-4 p-4 rounded-xl glass-panel-gold flex items-center justify-between">
+                                <div>
+                                    <h3 class="font-bold text-white text-base">MOHAMMAD VAHDANI</h3>
+                                    <p class="text-xs text-amber-400/90 font-en tracking-wide mt-0.5">PRECISION • PATIENCE • PROFIT</p>
+                                </div>
+                                <div class="w-10 h-10 rounded-full bg-amber-500/20 flex items-center justify-center text-amber-400 border border-amber-500/40">
+                                    <i class="fa-solid fa-shield-halved text-lg"></i>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Stats Section -->
-        <section class="border-y border-gray-800/80 bg-gray-950/50 py-10">
-            <div class="max-w-7xl mx-auto px-4 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+    <!-- 3. METRICS / STATS BAR -->
+    <section class="py-10 glass-panel border-y border-slateBorder relative z-10 bg-slate-950/40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
                 <div class="p-4">
-                    <div class="text-3xl font-black gold-gradient-text font-mono">XAUUSD</div>
-                    <div class="text-xs text-gray-400 mt-1">تمرکز تخصصی بر انس طلا</div>
+                    <span class="block text-amber-400 font-en text-3xl sm:text-4xl font-extrabold mb-1">24/7</span>
+                    <span class="text-xs sm:text-sm text-slate-400 font-medium">پالایش استراتژی و یادگیری</span>
                 </div>
                 <div class="p-4">
-                    <div class="text-3xl font-black text-white font-mono">STRICT</div>
-                    <div class="text-xs text-gray-400 mt-1">مدیریت ریسک ریاضی</div>
+                    <span class="block text-amber-400 font-en text-3xl sm:text-4xl font-extrabold mb-1">GOLD</span>
+                    <span class="text-xs sm:text-sm text-slate-400 font-medium">تمرکز تخصصی روی طلا</span>
                 </div>
                 <div class="p-4">
-                    <div class="text-3xl font-black gold-gradient-text font-mono">MULTI-FUNDED</div>
-                    <div class="text-xs text-gray-400 mt-1">دارای چالش‌های پاس‌شده</div>
+                    <span class="block text-emerald-400 font-en text-3xl sm:text-4xl font-extrabold mb-1">PRO-RISK</span>
+                    <span class="text-xs sm:text-sm text-slate-400 font-medium">مدیریت افت حساب (Drawdown)</span>
                 </div>
                 <div class="p-4">
-                    <div class="text-3xl font-black text-white font-mono">24/7</div>
-                    <div class="text-xs text-gray-400 mt-1">پایش زنده و ژورنال‌نویسی</div>
+                    <span class="block text-amber-400 font-en text-3xl sm:text-4xl font-extrabold mb-1">FUNDED</span>
+                    <span class="text-xs sm:text-sm text-slate-400 font-medium">پاس‌شده در چالش‌های معتبر</span>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- About Section -->
-        <section id="about" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-            <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
-                <h2 class="text-2xl sm:text-4xl font-black text-white">نگاه حرفه‌ای به <span class="gold-gradient-text">بازار مالی</span></h2>
-                <p class="text-gray-400 text-sm">معامله‌گری ترکیب انضباط روانی، تحلیل نقدینگی و احترام به ریسک است.</p>
+    <!-- 4. ABOUT & PHILOSOPHY SECTION -->
+    <section id="about" class="py-24 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Section Header -->
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-xs font-bold text-amber-400 tracking-widest uppercase mb-3 font-en">ABOUT & PHILOSOPHY</h2>
+                <h3 class="text-3xl sm:text-4xl font-black text-white">نگاه و استراتژی من به <span class="gold-text-gradient">بازارهای مالی</span></h3>
+                <p class="text-slate-400 text-sm sm:text-base mt-4">معامله‌گری موفق ترکیبی از تحلیل دقیق، انضباط سخت‌گیرانه فردی و کنترل کامل هیجانات است.</p>
             </div>
 
+            <!-- 3 Columns Architecture -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <div class="glass-card p-8 rounded-2xl space-y-4">
-                    <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 text-xl">
-                        <i class="fa-solid fa-shield-halved"></i>
+                
+                <!-- Card 1 -->
+                <div class="glass-panel p-8 rounded-2xl border border-slateBorder hover:border-amber-500/40 transition-all duration-300 group">
+                    <div class="w-14 h-14 rounded-2xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-scale-balanced text-2xl"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-white">مدیریت ریسک ارشد</h3>
-                    <p class="text-sm text-gray-400 leading-relaxed">
-                        اولویت اول در بازار بقاست. بدون حد ضرر مشخص هیچ معامله‌ای انجام نمی‌شود و حجم واردشده کاملاً متناسب با بالانس حساب محاسبه می‌گردد.
+                    <h4 class="text-xl font-bold text-white mb-3">مدیریت ریسک ارشد</h4>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        اولویت اول در تمامی پوزیشن‌ها، حفظ اصل سرمایه است. هیچ معامله‌ای بدون حد ضرر تعیین‌شده و ارزیابی دقیق نسبت سود به ریسک انجام نمی‌شود.
                     </p>
                 </div>
 
-                <div class="glass-card p-8 rounded-2xl space-y-4">
-                    <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 text-xl">
-                        <i class="fa-solid fa-chart-line"></i>
+                <!-- Card 2 -->
+                <div class="glass-panel p-8 rounded-2xl border border-slateBorder hover:border-amber-500/40 transition-all duration-300 group">
+                    <div class="w-14 h-14 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-bullseye text-2xl"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-white">تخصص تکی روی طلا</h3>
-                    <p class="text-sm text-gray-400 leading-relaxed">
-                        تمرکز کامل بر رفتار حرکتی، جلسات معاملاتی (سشن‌ها) و ساختارهای نقدینگی انس جهانی جهت دستیابی به بالاترین کیفیت تحلیل.
+                    <h4 class="text-xl font-bold text-white mb-3">تمرکز تخصصی بر طلا (XAUUSD)</h4>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        به جای پراکنده‌کاری در نمادهای متعدد، تمرکز عمیق روی رفتار قیمتی، چرخه‌های نقدینگی و رویدادهای کلیدی طلا دارم تا بالاترین نرخ دقت ممکن حاصل شود.
                     </p>
                 </div>
 
-                <div class="glass-card p-8 rounded-2xl space-y-4">
-                    <div class="w-12 h-12 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 text-xl">
-                        <i class="fa-solid fa-brain"></i>
+                <!-- Card 3 -->
+                <div class="glass-panel p-8 rounded-2xl border border-slateBorder hover:border-amber-500/40 transition-all duration-300 group">
+                    <div class="w-14 h-14 rounded-2xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 mb-6 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-brain text-2xl"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-white">روانشناسی و دسیپلین</h3>
-                    <p class="text-sm text-gray-400 leading-relaxed">
-                        حذف تصمیمات هیجانی و لحظه‌ای؛ معامله‌گری فقط بر اساس پلان مشخص، چک‌لیست ورودی استاندارد و سیستم ژورنال‌نویسی مکتوب.
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Certificates Section -->
-        <section id="certificates" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 border-t border-gray-900">
-            <div class="text-center max-w-3xl mx-auto mb-16 space-y-3">
-                <h2 class="text-2xl sm:text-4xl font-black text-white">سرتیفیکیت‌ها و <span class="gold-gradient-text">مدارک پاس‌شده</span></h2>
-                <p class="text-gray-400 text-sm">گواهی‌های اعتبارسنجی شده از چالش‌های سرمایه‌گذاری و پروپ‌فرم‌ها (برای مشاهده بزرگ کلیک کنید)</p>
-            </div>
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Cert 1 -->
-                <div onclick="openLightbox('cert-1.jpg')" class="glass-card rounded-xl overflow-hidden cursor-pointer group transition-all">
-                    <div class="relative overflow-hidden h-52 bg-gray-950">
-                        <img src="cert-1.jpg" alt="Moneta Funded Certificate" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity text-amber-300 font-bold text-sm">
-                            <i class="fa-solid fa-magnifying-glass-plus ml-2"></i> مشاهده تصویر بزرگ
-                        </div>
-                    </div>
-                    <div class="p-4 border-t border-gray-800 text-center">
-                        <h4 class="text-sm font-bold text-white">Moneta Funded — $25,000</h4>
-                        <p class="text-xs text-gray-500 mt-1">July 22, 2026</p>
-                    </div>
-                </div>
-
-                <!-- Cert 2 -->
-                <div onclick="openLightbox('cert-2.jpg')" class="glass-card rounded-xl overflow-hidden cursor-pointer group transition-all">
-                    <div class="relative overflow-hidden h-52 bg-gray-950">
-                        <img src="cert-2.jpg" alt="Moneta Funded Certificate" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity text-amber-300 font-bold text-sm">
-                            <i class="fa-solid fa-magnifying-glass-plus ml-2"></i> مشاهده تصویر بزرگ
-                        </div>
-                    </div>
-                    <div class="p-4 border-t border-gray-800 text-center">
-                        <h4 class="text-sm font-bold text-white">Moneta Funded — $25,000</h4>
-                        <p class="text-xs text-gray-500 mt-1">August 02, 2026</p>
-                    </div>
-                </div>
-
-                <!-- Cert 3 -->
-                <div onclick="openLightbox('cert-3.jpg')" class="glass-card rounded-xl overflow-hidden cursor-pointer group transition-all">
-                    <div class="relative overflow-hidden h-52 bg-gray-950">
-                        <img src="cert-3.jpg" alt="Zorafx Challenge Step Two" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity text-amber-300 font-bold text-sm">
-                            <i class="fa-solid fa-magnifying-glass-plus ml-2"></i> مشاهده تصویر بزرگ
-                        </div>
-                    </div>
-                    <div class="p-4 border-t border-gray-800 text-center">
-                        <h4 class="text-sm font-bold text-white">Zorafx — Challenge Step Two</h4>
-                        <p class="text-xs text-gray-500 mt-1">Phase 2 Passed</p>
-                    </div>
-                </div>
-
-                <!-- Cert 4 -->
-                <div onclick="openLightbox('cert-4.jpg')" class="glass-card rounded-xl overflow-hidden cursor-pointer group transition-all">
-                    <div class="relative overflow-hidden h-52 bg-gray-950">
-                        <img src="cert-4.jpg" alt="Zorafx Challenge Step One" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity text-amber-300 font-bold text-sm">
-                            <i class="fa-solid fa-magnifying-glass-plus ml-2"></i> مشاهده تصویر بزرگ
-                        </div>
-                    </div>
-                    <div class="p-4 border-t border-gray-800 text-center">
-                        <h4 class="text-sm font-bold text-white">Zorafx — Challenge Step One</h4>
-                        <p class="text-xs text-gray-500 mt-1">Phase 1 Passed</p>
-                    </div>
-                </div>
-
-                <!-- Cert 5 -->
-                <div onclick="openLightbox('cert-5.jpg')" class="glass-card rounded-xl overflow-hidden cursor-pointer group transition-all">
-                    <div class="relative overflow-hidden h-52 bg-gray-950">
-                        <img src="cert-5.jpg" alt="Zorafx LastProp Challenge" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity text-amber-300 font-bold text-sm">
-                            <i class="fa-solid fa-magnifying-glass-plus ml-2"></i> مشاهده تصویر بزرگ
-                        </div>
-                    </div>
-                    <div class="p-4 border-t border-gray-800 text-center">
-                        <h4 class="text-sm font-bold text-white">Zorafx — LastProp $25,000</h4>
-                        <p class="text-xs text-gray-500 mt-1">Funded Certificate</p>
-                    </div>
-                </div>
-
-                <!-- Cert 6 -->
-                <div onclick="openLightbox('cert-6.jpg')" class="glass-card rounded-xl overflow-hidden cursor-pointer group transition-all">
-                    <div class="relative overflow-hidden h-52 bg-gray-950">
-                        <img src="cert-6.jpg" alt="Fenefx Certificate" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-                        <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity text-amber-300 font-bold text-sm">
-                            <i class="fa-solid fa-magnifying-glass-plus ml-2"></i> مشاهده تصویر بزرگ
-                        </div>
-                    </div>
-                    <div class="p-4 border-t border-gray-800 text-center">
-                        <h4 class="text-sm font-bold text-white">Fenefx — Certificate of Appreciation</h4>
-                        <p class="text-xs text-gray-500 mt-1">Acknowledgement</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- FAQ Section -->
-        <section id="faq" class="max-w-4xl mx-auto px-4 py-20 border-t border-gray-900">
-            <div class="text-center mb-12">
-                <h2 class="text-2xl sm:text-3xl font-black text-white">سوالات متداول <span class="gold-gradient-text">سرمایه‌گذاران</span></h2>
-            </div>
-
-            <div class="space-y-4">
-                <div class="glass-card rounded-xl p-5 cursor-pointer" onclick="toggleFaq(1)">
-                    <div class="flex justify-between items-center font-bold text-white text-sm sm:text-base">
-                        <span>آیا میزان سود ماهانه تضمین می‌شود؟</span>
-                        <i id="faqIcon-1" class="fa-solid fa-chevron-down text-amber-400 transition-transform"></i>
-                    </div>
-                    <p id="faqText-1" class="hidden text-xs sm:text-sm text-gray-400 mt-3 leading-relaxed">
-                        خیر. در بازارهای مالی هیچ سود تضمین‌شده‌ای وجود ندارد. تمرکز اصلی بر روی کنترل خطرات، مدیریت افت حساب (Drawdown) و سودآوری مستمر بر پایه ریسک به ریوارد منطقی است.
+                    <h4 class="text-xl font-bold text-white mb-3">انضباط و تصمیم‌گیری آماری</h4>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        پایبندی کامل به قوانین چک‌لیست معاملاتی، ثبت دقیق ژورنال و حذف کامل تصمیم‌گیری‌های احساسی و لحظه‌ای در چرخه بازار.
                     </p>
                 </div>
 
-                <div class="glass-card rounded-xl p-5 cursor-pointer" onclick="toggleFaq(2)">
-                    <div class="flex justify-between items-center font-bold text-white text-sm sm:text-base">
-                        <span>استراتژی اصلی معامله‌گری چیست؟</span>
-                        <i id="faqIcon-2" class="fa-solid fa-chevron-down text-amber-400 transition-transform"></i>
-                    </div>
-                    <p id="faqText-2" cl
+            </div>
+
+            <!-- Investor Mindset Callout -->
+            <div class="mt-12 p-8 rounded-2xl glass-panel-gold border border-amber-500/30 text-center md:text-right flex flex-col md:flex-row items-center justify-between gap-6">
+                <div class="space-y-2">
+                    <h4 class="text-lg font-bold text-white">نگاه واقع‌بینانه به سرمایه‌گذاری</h4>
+                    <p class="text-slate-300 text-sm leading-relaxed max-w-3xl">
+                        حفظ سرمایه و کنترل سطح ریسک در اولویت مطلق است. سودآوری هدف غایی ماست، اما وعده سود تضمینی وجود ندارد؛ پایداری روند معامله‌گری تضمین ماست.
+                    </p>
+                </div>
+                <a href="#contact" class="px-6 py-3 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold text-xs whites
